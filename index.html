@@ -1,0 +1,2674 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BizApps — Мобильные и веб-приложения, бизнес-системы под ключ</title>
+  <meta name="description" content="Разработка мобильных приложений, веб-приложений и бизнес-систем в Беларуси и России. От идеи до запуска от 1 недели.">
+  <meta name="keywords" content="разработка мобильных приложений, веб-приложения, бизнес-системы, CRM, ERP, мобильное приложение на заказ, iOS Android разработка, Беларусь, Россия, Минск, Москва, BizApps">
+  <meta name="author" content="BizApps">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://bizapps.by/">
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+
+  <!-- Open Graph (Facebook, Telegram, LinkedIn) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BizApps — Мобильные и веб-приложения, бизнес-системы под ключ">
+  <meta property="og:description" content="Мобильные приложения, веб-приложения и бизнес-системы под ключ. От идеи до запуска от 1 недели.">
+  <meta property="og:url" content="https://bizapps.by/">
+  <meta property="og:site_name" content="BizApps">
+  <meta property="og:locale" content="ru_BY">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BizApps — Мобильные и веб-приложения, бизнес-системы под ключ">
+  <meta name="twitter:description" content="Мобильные приложения, веб-приложения и бизнес-системы под ключ. От идеи до запуска от 1 недели.">
+
+  <!-- Schema.org LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "BizApps",
+    "description": "Разработка мобильных приложений, веб-приложений и бизнес-систем под ключ",
+    "url": "https://bizapps.by",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Минск",
+      "addressCountry": "BY"
+    },
+    "priceRange": "$$",
+    "serviceType": ["Разработка мобильных приложений", "iOS разработка", "Android разработка", "Веб-приложения", "CRM системы", "ERP системы", "Бизнес-системы"],
+    "sameAs": [
+      "https://t.me/biz_apps_bot",
+      "https://instagram.com/biz_apps_"
+    ]
+  }
+  </script>
+
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #6C3AFF;
+      --primary-light: #8B5CF6;
+      --primary-dark: #5521CC;
+      --accent: #00D4AA;
+      --accent-light: #34FFCE;
+      --dark: #0A0A1A;
+      --dark-light: #12122A;
+      --dark-card: #1A1A35;
+      --gray: #8888AA;
+      --light: #E8E8F0;
+      --white: #FFFFFF;
+      --gradient-1: linear-gradient(135deg, #6C3AFF 0%, #00D4AA 100%);
+      --gradient-2: linear-gradient(135deg, #FF6B6B 0%, #FFE66D 100%);
+      --gradient-3: linear-gradient(135deg, #4ECDC4 0%, #556270 100%);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--dark);
+      color: var(--white);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ===== CURSOR GLOW ===== */
+    .cursor-glow {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(108, 58, 255, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      transform: translate(-50%, -50%);
+      transition: left 0.3s ease, top 0.3s ease;
+    }
+
+    /* ===== ANIMATED BG ===== */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(108, 58, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(108, 58, 255, 0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      z-index: 0;
+    }
+
+    .floating-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.15;
+      z-index: 0;
+      animation: float 20s ease-in-out infinite;
+    }
+
+    .orb-1 { width: 400px; height: 400px; background: var(--primary); top: 10%; left: 10%; animation-delay: 0s; }
+    .orb-2 { width: 300px; height: 300px; background: var(--accent); top: 60%; right: 10%; animation-delay: -7s; }
+    .orb-3 { width: 350px; height: 350px; background: #FF6B6B; bottom: 10%; left: 40%; animation-delay: -14s; }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30px, -40px) scale(1.1); }
+      50% { transform: translate(-20px, 20px) scale(0.95); }
+      75% { transform: translate(40px, 30px) scale(1.05); }
+    }
+
+    /* ===== REVEAL ANIMATIONS ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-80px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(80px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .reveal-scale {
+      opacity: 0;
+      transform: scale(0.85);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-scale.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+    .stagger-5 { transition-delay: 0.5s; }
+    .stagger-6 { transition-delay: 0.6s; }
+
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.4s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(10, 10, 26, 0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(108, 58, 255, 0.1);
+      padding: 14px 40px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--gradient-1);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      padding: 10px 24px;
+      background: var(--gradient-1);
+      border: none;
+      border-radius: 50px;
+      color: var(--white);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(108, 58, 255, 0.4);
+    }
+
+    /* ===== CONTAINER ===== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    section { padding: 120px 0; position: relative; z-index: 1; }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(108, 58, 255, 0.1);
+      border: 1px solid rgba(108, 58, 255, 0.2);
+      border-radius: 50px;
+      font-size: 13px;
+      color: var(--primary-light);
+      margin-bottom: 24px;
+    }
+
+    .hero-badge .dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.5); }
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 5vw, 64px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 .gradient-text {
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--gray);
+      max-width: 480px;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      padding: 16px 36px;
+      background: var(--gradient-1);
+      border: none;
+      border-radius: 60px;
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(108, 58, 255, 0.5);
+    }
+
+    .btn-secondary {
+      padding: 16px 36px;
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 60px;
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary-light);
+      background: rgba(108, 58, 255, 0.1);
+    }
+
+    /* Hero phone mockups */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 600px;
+    }
+
+    .phone-mockup {
+      width: 260px;
+      height: 520px;
+      background: var(--dark-card);
+      border-radius: 36px;
+      border: 2px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      position: absolute;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .phone-mockup:hover {
+      transform: translateY(-10px) !important;
+    }
+
+    .phone-1 {
+      transform: rotate(-8deg) translateX(-60px);
+      z-index: 2;
+    }
+
+    .phone-2 {
+      transform: rotate(5deg) translateX(60px) translateY(30px);
+      z-index: 1;
+    }
+
+    .phone-notch {
+      width: 120px;
+      height: 28px;
+      background: var(--dark);
+      margin: 0 auto;
+      border-radius: 0 0 16px 16px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: calc(100% - 28px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .phone-screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Placeholder app screens */
+    .app-screen {
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+    }
+
+    .screen-1 {
+      background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+    }
+
+    .screen-1 .app-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .screen-1 .app-greeting {
+      font-size: 11px;
+      color: var(--gray);
+    }
+
+    .screen-1 .app-name {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .screen-1 .app-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--gradient-1);
+    }
+
+    .screen-1 .app-card {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .screen-1 .app-card-label {
+      font-size: 10px;
+      opacity: 0.8;
+    }
+
+    .screen-1 .app-card-value {
+      font-size: 24px;
+      font-weight: 800;
+      margin: 4px 0;
+    }
+
+    .screen-1 .app-card-sub {
+      font-size: 11px;
+      opacity: 0.7;
+    }
+
+    .screen-1 .app-actions {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .screen-1 .app-action {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 14px 8px;
+      text-align: center;
+    }
+
+    .screen-1 .app-action-icon {
+      width: 28px;
+      height: 28px;
+      background: rgba(108, 58, 255, 0.2);
+      border-radius: 8px;
+      margin: 0 auto 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .screen-1 .app-action-text {
+      font-size: 9px;
+      color: var(--gray);
+    }
+
+    .screen-1 .app-transactions-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .screen-1 .app-transaction {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .screen-1 .app-tx-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: rgba(108, 58, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .screen-1 .app-tx-info { flex: 1; }
+
+    .screen-1 .app-tx-name {
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .screen-1 .app-tx-date {
+      font-size: 9px;
+      color: var(--gray);
+    }
+
+    .screen-1 .app-tx-amount {
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .screen-2 {
+      background: linear-gradient(180deg, #0f0f23 0%, #1a0a2e 100%);
+    }
+
+    .screen-2 .chat-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .screen-2 .chat-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--gradient-2);
+    }
+
+    .screen-2 .chat-name {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .screen-2 .chat-status {
+      font-size: 10px;
+      color: var(--accent);
+    }
+
+    .screen-2 .chat-messages {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .screen-2 .chat-msg {
+      max-width: 80%;
+      padding: 10px 14px;
+      border-radius: 16px;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .screen-2 .chat-msg.incoming {
+      background: rgba(255, 255, 255, 0.08);
+      align-self: flex-start;
+      border-bottom-left-radius: 4px;
+    }
+
+    .screen-2 .chat-msg.outgoing {
+      background: var(--primary);
+      align-self: flex-end;
+      border-bottom-right-radius: 4px;
+    }
+
+    .screen-2 .chat-time {
+      font-size: 9px;
+      color: var(--gray);
+      margin-top: 4px;
+    }
+
+    .screen-2 .chat-input-bar {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+    }
+
+    .screen-2 .chat-input-text {
+      font-size: 11px;
+      color: var(--gray);
+    }
+
+    .screen-2 .chat-send {
+      width: 28px;
+      height: 28px;
+      background: var(--primary);
+      border-radius: 50%;
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+    }
+
+    /* Hero stats */
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .hero-stat-value {
+      font-size: 28px;
+      font-weight: 800;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-stat-label {
+      font-size: 13px;
+      color: var(--gray);
+      margin-top: 4px;
+    }
+
+    /* ===== SECTION HEADERS ===== */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary-light);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--gradient-1);
+    }
+
+    .section-title {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+
+    .section-subtitle {
+      font-size: 18px;
+      color: var(--gray);
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    /* ===== ADVANTAGES ===== */
+    .advantages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 64px;
+    }
+
+    .advantage-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      padding: 36px;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .advantage-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gradient-1);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .advantage-card:hover {
+      background: rgba(108, 58, 255, 0.05);
+      border-color: rgba(108, 58, 255, 0.2);
+      transform: translateY(-5px);
+    }
+
+    .advantage-card:hover::before { opacity: 1; }
+
+    .advantage-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .advantage-icon.purple { background: rgba(108, 58, 255, 0.15); }
+    .advantage-icon.green { background: rgba(0, 212, 170, 0.15); }
+    .advantage-icon.orange { background: rgba(255, 107, 107, 0.15); }
+    .advantage-icon.blue { background: rgba(78, 205, 196, 0.15); }
+    .advantage-icon.pink { background: rgba(255, 154, 158, 0.15); }
+    .advantage-icon.yellow { background: rgba(255, 230, 109, 0.15); }
+
+    .advantage-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .advantage-card p {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    /* ===== PROCESS ===== */
+    .process-timeline {
+      margin-top: 64px;
+      position: relative;
+    }
+
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      left: 28px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--primary) 0%, var(--accent) 100%);
+      opacity: 0.3;
+    }
+
+    .process-step {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      padding: 32px 0;
+      position: relative;
+    }
+
+    .process-number {
+      width: 56px;
+      height: 56px;
+      min-width: 56px;
+      border-radius: 50%;
+      background: var(--dark-card);
+      border: 2px solid var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--primary-light);
+      position: relative;
+      z-index: 2;
+    }
+
+    .process-content h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .process-content p {
+      color: var(--gray);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .process-content .process-duration {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      padding: 6px 14px;
+      background: rgba(0, 212, 170, 0.1);
+      border-radius: 50px;
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* ===== PORTFOLIO ===== */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 64px;
+    }
+
+    .portfolio-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(108, 58, 255, 0.3);
+      box-shadow: 0 20px 60px rgba(108, 58, 255, 0.15);
+    }
+
+    .portfolio-preview {
+      height: 360px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .portfolio-phone {
+      width: 180px;
+      height: 360px;
+      background: var(--dark);
+      border-radius: 28px;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+    }
+
+    .portfolio-card:hover .portfolio-phone {
+      transform: scale(1.05);
+    }
+
+    .portfolio-phone-notch {
+      width: 80px;
+      height: 20px;
+      background: var(--dark);
+      margin: 0 auto;
+      border-radius: 0 0 12px 12px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .portfolio-screen {
+      width: 100%;
+      height: calc(100% - 20px);
+      overflow: hidden;
+    }
+
+    .p-screen {
+      width: 100%;
+      height: 100%;
+      padding: 14px;
+    }
+
+    /* Food Delivery App Screen */
+    .food-app {
+      background: linear-gradient(180deg, #1a0a0a 0%, #2d1515 100%);
+    }
+
+    .food-app .food-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .food-app .food-location {
+      font-size: 9px;
+      color: var(--gray);
+    }
+
+    .food-app .food-city {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .food-app .food-search {
+      width: 100%;
+      height: 32px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      font-size: 10px;
+      color: var(--gray);
+    }
+
+    .food-app .food-categories {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+
+    .food-app .food-cat {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 8px;
+      text-align: center;
+      min-width: 48px;
+    }
+
+    .food-app .food-cat.active {
+      background: rgba(255, 107, 107, 0.2);
+    }
+
+    .food-app .food-cat-emoji { font-size: 16px; }
+
+    .food-app .food-cat-text {
+      font-size: 7px;
+      color: var(--gray);
+      margin-top: 2px;
+    }
+
+    .food-app .food-item {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 12px;
+      padding: 10px;
+      display: flex;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .food-app .food-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    }
+
+    .food-app .food-img.green {
+      background: linear-gradient(135deg, #00b894, #00cec9);
+    }
+
+    .food-app .food-info { flex: 1; }
+
+    .food-app .food-name {
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .food-app .food-desc {
+      font-size: 8px;
+      color: var(--gray);
+      margin: 2px 0;
+    }
+
+    .food-app .food-price {
+      font-size: 11px;
+      font-weight: 700;
+      color: #ff6b6b;
+    }
+
+    /* Fitness App Screen */
+    .fitness-app {
+      background: linear-gradient(180deg, #0a1628 0%, #0d1f3c 100%);
+    }
+
+    .fitness-app .fit-header {
+      margin-bottom: 14px;
+    }
+
+    .fitness-app .fit-greeting {
+      font-size: 10px;
+      color: var(--gray);
+    }
+
+    .fitness-app .fit-name {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .fitness-app .fit-ring {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 4px solid rgba(108, 58, 255, 0.2);
+      margin: 0 auto 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .fitness-app .fit-ring::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 4px solid transparent;
+      border-top-color: var(--primary-light);
+      border-right-color: var(--primary-light);
+      transform: rotate(45deg);
+    }
+
+    .fitness-app .fit-ring::after {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      border-radius: 50%;
+      border: 4px solid rgba(0, 212, 170, 0.2);
+    }
+
+    .fitness-app .fit-calories {
+      text-align: center;
+    }
+
+    .fitness-app .fit-cal-value {
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .fitness-app .fit-cal-label {
+      font-size: 8px;
+      color: var(--gray);
+    }
+
+    .fitness-app .fit-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .fitness-app .fit-stat {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 10px;
+      padding: 10px 6px;
+      text-align: center;
+    }
+
+    .fitness-app .fit-stat-icon {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .fitness-app .fit-stat-val {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .fitness-app .fit-stat-label {
+      font-size: 7px;
+      color: var(--gray);
+    }
+
+    .fitness-app .fit-workout {
+      background: rgba(108, 58, 255, 0.1);
+      border: 1px solid rgba(108, 58, 255, 0.2);
+      border-radius: 12px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .fitness-app .fit-workout-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+
+    .fitness-app .fit-workout-name {
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .fitness-app .fit-workout-time {
+      font-size: 9px;
+      color: var(--gray);
+    }
+
+    /* E-commerce App Screen */
+    .ecommerce-app {
+      background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+    }
+
+    .ecommerce-app .shop-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .ecommerce-app .shop-title {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .ecommerce-app .shop-cart {
+      width: 28px;
+      height: 28px;
+      background: rgba(108, 58, 255, 0.15);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      position: relative;
+    }
+
+    .ecommerce-app .shop-cart-badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      width: 14px;
+      height: 14px;
+      background: #ff6b6b;
+      border-radius: 50%;
+      font-size: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .ecommerce-app .shop-banner {
+      background: linear-gradient(135deg, var(--primary), #00D4AA);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+
+    .ecommerce-app .shop-banner-sub {
+      font-size: 8px;
+      opacity: 0.8;
+    }
+
+    .ecommerce-app .shop-banner-title {
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .ecommerce-app .shop-banner-btn {
+      margin-top: 6px;
+      background: rgba(255, 255, 255, 0.2);
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 9px;
+      font-weight: 600;
+    }
+
+    .ecommerce-app .shop-products {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .ecommerce-app .shop-product {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .ecommerce-app .shop-product-img {
+      width: 100%;
+      height: 60px;
+      border-radius: 8px;
+      margin-bottom: 6px;
+    }
+
+    .ecommerce-app .shop-product-img.img1 {
+      background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+    }
+
+    .ecommerce-app .shop-product-img.img2 {
+      background: linear-gradient(135deg, #fd79a8, #e84393);
+    }
+
+    .ecommerce-app .shop-product-img.img3 {
+      background: linear-gradient(135deg, #00cec9, #0984e3);
+    }
+
+    .ecommerce-app .shop-product-img.img4 {
+      background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+    }
+
+    .ecommerce-app .shop-product-name {
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    .ecommerce-app .shop-product-price {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .portfolio-info {
+      padding: 28px;
+    }
+
+    .portfolio-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(108, 58, 255, 0.1);
+      border-radius: 50px;
+      font-size: 11px;
+      color: var(--primary-light);
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .portfolio-info h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .portfolio-info p {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    .portfolio-techs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .tech-badge {
+      padding: 4px 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
+      font-size: 11px;
+      color: var(--gray);
+    }
+
+    /* ===== PRICING / USP ===== */
+    .usp-section {
+      background: linear-gradient(180deg, transparent 0%, rgba(108, 58, 255, 0.03) 50%, transparent 100%);
+    }
+
+    .usp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-top: 64px;
+      align-items: center;
+    }
+
+    .usp-visual {
+      position: relative;
+    }
+
+    .usp-big-number {
+      font-size: 200px;
+      font-weight: 900;
+      background: linear-gradient(180deg, rgba(108, 58, 255, 0.15) 0%, transparent 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+      letter-spacing: -10px;
+    }
+
+    .usp-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .usp-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .usp-check {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 50%;
+      background: rgba(0, 212, 170, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 14px;
+      margin-top: 2px;
+    }
+
+    .usp-item h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .usp-item p {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 64px;
+    }
+
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      padding: 32px;
+      transition: all 0.4s;
+    }
+
+    .testimonial-card:hover {
+      border-color: rgba(108, 58, 255, 0.2);
+      background: rgba(108, 58, 255, 0.03);
+    }
+
+    .testimonial-stars {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 16px;
+      color: #FFE66D;
+      font-size: 14px;
+    }
+
+    .testimonial-text {
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      color: var(--light);
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .testimonial-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .testimonial-name {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .testimonial-role {
+      font-size: 12px;
+      color: var(--gray);
+    }
+
+    /* ===== CONTACT ===== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-top: 64px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .contact-method {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .contact-icon {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      border-radius: 12px;
+      background: rgba(108, 58, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .contact-method h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .contact-method a, .contact-method p {
+      font-size: 14px;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .contact-method a:hover { color: var(--primary-light); }
+
+    .contact-form {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      padding: 40px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 14px 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      color: var(--white);
+      font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      transition: border-color 0.3s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--primary-light);
+    }
+
+    .form-group textarea {
+      height: 120px;
+      resize: vertical;
+    }
+
+    .form-group select option {
+      background: var(--dark);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--gradient-1);
+      border: none;
+      border-radius: 12px;
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(108, 58, 255, 0.4);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      padding: 60px 0 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-social {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 18px;
+      transition: all 0.3s;
+    }
+
+    .footer-social:hover {
+      background: rgba(108, 58, 255, 0.15);
+      border-color: rgba(108, 58, 255, 0.3);
+      transform: translateY(-3px);
+    }
+
+    /* ===== MARQUEE ===== */
+    .marquee-section {
+      padding: 40px 0;
+      overflow: hidden;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      position: relative;
+      z-index: 1;
+    }
+
+    .marquee-track {
+      display: flex;
+      animation: marquee 30s linear infinite;
+      width: max-content;
+    }
+
+    .marquee-item {
+      font-size: 48px;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.03);
+      white-space: nowrap;
+      padding: 0 40px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ===== COUNTER ANIMATION ===== */
+    .counter { display: inline-block; }
+
+    /* ===== MOBILE MENU ===== */
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 24px;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .hero-content { grid-template-columns: 1fr; text-align: center; }
+      .hero p { margin: 0 auto 40px; }
+      .hero-buttons { justify-content: center; }
+      .hero-visual { height: 400px; margin-top: 40px; }
+      .hero-stats { justify-content: center; }
+      .advantages-grid { grid-template-columns: repeat(2, 1fr); }
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+      .usp-grid { grid-template-columns: 1fr; }
+      .usp-visual { text-align: center; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .navbar { padding: 16px 20px; }
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: block; }
+      section { padding: 80px 0; }
+      .advantages-grid { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-stats { flex-direction: column; align-items: center; gap: 20px; }
+      .phone-1 { transform: rotate(-5deg) translateX(-40px) scale(0.85); }
+      .phone-2 { transform: rotate(3deg) translateX(40px) translateY(20px) scale(0.85); }
+      .footer-content { flex-direction: column; gap: 20px; text-align: center; }
+    }
+
+    /* ===== SMOOTH SCROLL INDICATOR ===== */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: var(--gradient-1);
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* ===== PARTICLE CANVAS ===== */
+    #particles {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="bg-grid"></div>
+  <div class="floating-orb orb-1"></div>
+  <div class="floating-orb orb-2"></div>
+  <div class="floating-orb orb-3"></div>
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <canvas id="particles"></canvas>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="logo">BizApps</div>
+    <ul class="nav-links">
+      <li><a href="#advantages">Преимущества</a></li>
+      <li><a href="#process">Процесс</a></li>
+      <li><a href="#bizchat">BizChat</a></li>
+      <li><a href="#portfolio">Портфолио</a></li>
+      <li><a href="#reviews">Отзывы</a></li>
+      <li><a href="#contact">Контакты</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Обсудить проект</a>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">&#9776;</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-badge reveal">
+            <span class="dot"></span>
+            MVP от 1 недели
+          </div>
+          <h1 class="reveal stagger-1">
+            Превращаем идею в<br>
+            <span class="gradient-text">готовый digital-продукт</span>
+          </h1>
+          <p class="reveal stagger-2">
+            Мобильные приложения, веб-приложения и бизнес-системы под ключ.
+            От концепции до запуска — MVP от 1 недели, полный продукт от 4 недель. Работаем с клиентами из Беларуси и России.
+          </p>
+          <div class="hero-buttons reveal stagger-3">
+            <a href="#contact" class="btn-primary">
+              Получить оценку проекта
+              <span>&#8594;</span>
+            </a>
+            <a href="#portfolio" class="btn-secondary">
+              Смотреть работы
+              <span>&#9654;</span>
+            </a>
+            <a href="#bizchat" class="btn-secondary">
+              Твой корпоративный мессенджер
+              <span>&#9654;</span>
+            </a>
+          </div>
+          <div class="hero-stats reveal stagger-4">
+            <div>
+              <div class="hero-stat-value"><span class="counter" data-target="30">0</span>+</div>
+              <div class="hero-stat-label">Проектов</div>
+            </div>
+            <div>
+              <div class="hero-stat-value"><span class="counter" data-target="1">0</span> нед.</div>
+              <div class="hero-stat-label">MVP за неделю</div>
+            </div>
+            <div>
+              <div class="hero-stat-value"><span class="counter" data-target="100">0</span>%</div>
+              <div class="hero-stat-label">Довольных клиентов</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual reveal-right stagger-2">
+          <div class="phone-mockup phone-1">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <img src="images/bizchat-list.png" alt="BizChat — список чатов">
+            </div>
+          </div>
+          <div class="phone-mockup phone-2">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <div class="p-screen fitness-app">
+                <div class="fit-header">
+                  <div class="fit-greeting">&#128170; Сегодня</div>
+                  <div class="fit-name">Тренировка</div>
+                </div>
+                <div class="fit-ring">
+                  <div class="fit-calories">
+                    <div class="fit-cal-value">847</div>
+                    <div class="fit-cal-label">kcal</div>
+                  </div>
+                </div>
+                <div class="fit-stats">
+                  <div class="fit-stat">
+                    <div class="fit-stat-icon">&#128099;</div>
+                    <div class="fit-stat-val">8,432</div>
+                    <div class="fit-stat-label">Шаги</div>
+                  </div>
+                  <div class="fit-stat">
+                    <div class="fit-stat-icon">&#128293;</div>
+                    <div class="fit-stat-val">847</div>
+                    <div class="fit-stat-label">Калории</div>
+                  </div>
+                  <div class="fit-stat">
+                    <div class="fit-stat-icon">&#9829;</div>
+                    <div class="fit-stat-val">72</div>
+                    <div class="fit-stat-label">Пульс</div>
+                  </div>
+                </div>
+                <div class="fit-workout">
+                  <div class="fit-workout-icon">&#127947;</div>
+                  <div>
+                    <div class="fit-workout-name">Силовая тренировка</div>
+                    <div class="fit-workout-time">45 мин &bull; Верхняя часть тела</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <span class="marquee-item">iOS &bull; Android &bull; React Native &bull; Flutter &bull; UI/UX Design &bull; MVP &bull; Startup &bull;</span>
+      <span class="marquee-item">iOS &bull; Android &bull; React Native &bull; Flutter &bull; UI/UX Design &bull; MVP &bull; Startup &bull;</span>
+    </div>
+  </div>
+
+  <!-- ADVANTAGES -->
+  <section id="advantages">
+    <div class="container">
+      <div class="section-label reveal">Почему мы</div>
+      <h2 class="section-title reveal stagger-1">Преимущества, которые<br>вы <span class="gradient-text">почувствуете</span></h2>
+      <p class="section-subtitle reveal stagger-2">Мы не просто пишем код — мы строим мобильные и веб-приложения, а также бизнес-системы, которые приносят деньги</p>
+
+      <div class="advantages-grid">
+        <div class="advantage-card reveal stagger-1">
+          <div class="advantage-icon purple">&#9889;</div>
+          <h3>Скорость x3</h3>
+          <p>MVP за 1 неделю, полный продукт от 4 недель. Пока конкуренты рисуют макеты — вы уже тестируете с реальными пользователями.</p>
+        </div>
+        <div class="advantage-card reveal stagger-2">
+          <div class="advantage-icon green">&#127912;</div>
+          <h3>Дизайн мирового уровня</h3>
+          <p>Каждый экран проходит через UX-исследование. Ваше приложение будет выглядеть как продукт из Кремниевой долины.</p>
+        </div>
+        <div class="advantage-card reveal stagger-3">
+          <div class="advantage-icon orange">&#128176;</div>
+          <h3>Фиксированная цена</h3>
+          <p>Никаких сюрпризов в бюджете. Называем цену — держим слово. Оплата по этапам с приёмкой каждого.</p>
+        </div>
+        <div class="advantage-card reveal stagger-4">
+          <div class="advantage-icon blue">&#128640;</div>
+          <h3>Запуск "под ключ"</h3>
+          <p>Мобильные приложения в App Store и Google Play, веб-приложения, CRM, ERP и другие бизнес-системы — с аналитикой и полной инфраструктурой.</p>
+        </div>
+        <div class="advantage-card reveal stagger-5">
+          <div class="advantage-icon pink">&#128296;</div>
+          <h3>Поддержка 3 месяца бесплатно</h3>
+          <p>После запуска — 3 месяца бесплатной технической поддержки и исправления багов. Ваш продукт в надёжных руках.</p>
+        </div>
+        <div class="advantage-card reveal stagger-6">
+          <div class="advantage-icon yellow">&#127463;&#127486;</div>
+          <h3>Знаем рынок РБ и РФ</h3>
+          <p>Глубокая экспертиза в рынках Беларуси и России: интеграции с ЕРИП, ЮKassa, локальные платёжные системы, локализация и понимание аудитории обоих рынков.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process">
+    <div class="container">
+      <div class="section-label reveal">Как мы работаем</div>
+      <h2 class="section-title reveal stagger-1">Прозрачный процесс<br>от <span class="gradient-text">идеи до стора</span></h2>
+      <p class="section-subtitle reveal stagger-2">Вы всегда знаете, что происходит с вашим проектом на каждом этапе</p>
+
+      <div class="process-timeline">
+        <div class="process-step reveal">
+          <div class="process-number">1</div>
+          <div class="process-content">
+            <h3>Бриф и аналитика</h3>
+            <p>Погружаемся в вашу идею, анализируем конкурентов и целевую аудиторию. Формируем техническое задание и оценку.</p>
+            <div class="process-duration">&#128337; 2-3 дня</div>
+          </div>
+        </div>
+        <div class="process-step reveal stagger-1">
+          <div class="process-number">2</div>
+          <div class="process-content">
+            <h3>UI/UX Дизайн</h3>
+            <p>Создаём интерактивные прототипы и финальный дизайн всех экранов. Тестируем на реальных пользователях.</p>
+            <div class="process-duration">&#128337; 1-2 недели</div>
+          </div>
+        </div>
+        <div class="process-step reveal stagger-2">
+          <div class="process-number">3</div>
+          <div class="process-content">
+            <h3>Разработка</h3>
+            <p>Кодим на React Native / Flutter для обеих платформ одновременно. Еженедельные демо-показы прогресса.</p>
+            <div class="process-duration">&#128337; 3-5 недель</div>
+          </div>
+        </div>
+        <div class="process-step reveal stagger-3">
+          <div class="process-number">4</div>
+          <div class="process-content">
+            <h3>Тестирование и QA</h3>
+            <p>Полный цикл тестирования: функциональное, нагрузочное, UX-тесты. Устраняем все баги до релиза.</p>
+            <div class="process-duration">&#128337; 3-5 дней</div>
+          </div>
+        </div>
+        <div class="process-step reveal stagger-4">
+          <div class="process-number">5</div>
+          <div class="process-content">
+            <h3>Запуск в сторах</h3>
+            <p>Публикуем в App Store и Google Play, настраиваем аналитику, мониторинг крашей и push-уведомления.</p>
+            <div class="process-duration">&#128337; 2-3 дня</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIZCHAT PRODUCT -->
+  <section id="bizchat" style="padding: 100px 0; background: linear-gradient(180deg, var(--dark) 0%, #0f0f2a 50%, var(--dark) 100%); position: relative; overflow: hidden;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 30% 50%, rgba(108, 58, 255, 0.06) 0%, transparent 70%); pointer-events: none;"></div>
+    <div class="container" style="position: relative; z-index: 1;">
+      <div class="section-label reveal" style="text-align: center;">Готовый продукт</div>
+      <h2 class="section-title reveal stagger-1" style="text-align: center;">
+        BizChat — безопасный<br><span class="gradient-text">корпоративный мессенджер</span>
+      </h2>
+      <p class="section-subtitle reveal stagger-2" style="text-align: center; max-width: 700px; margin: 0 auto 20px;">
+        Независимая альтернатива Telegram для бизнеса и комьюнити. Ваши данные — на вашем сервере. Полный контроль, никакой зависимости от зарубежных платформ.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 60px;" class="reveal stagger-3">
+        <span style="padding: 6px 16px; border-radius: 20px; background: rgba(0, 212, 170, 0.1); border: 1px solid rgba(0, 212, 170, 0.2); color: var(--accent); font-size: 13px; font-weight: 600;">&#128274; Суверенное решение</span>
+        <span style="padding: 6px 16px; border-radius: 20px; background: rgba(108, 58, 255, 0.1); border: 1px solid rgba(108, 58, 255, 0.2); color: var(--primary-light); font-size: 13px; font-weight: 600;">&#127479;&#127482; Для рынка РФ</span>
+        <span style="padding: 6px 16px; border-radius: 20px; background: rgba(255, 107, 107, 0.1); border: 1px solid rgba(255, 107, 107, 0.2); color: #FF6B6B; font-size: 13px; font-weight: 600;">&#9889; White-label</span>
+      </div>
+
+      <!-- Phone mockups with real screenshots -->
+      <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-bottom: 60px; align-items: flex-end;">
+        <div class="reveal-scale stagger-1" style="text-align: center;">
+          <div style="width: 240px; border-radius: 32px; background: #1a1d2e; padding: 8px; box-shadow: 0 20px 60px rgba(108, 58, 255, 0.25), 0 0 0 1px rgba(255,255,255,0.06), 0 0 80px rgba(108, 58, 255, 0.1); margin: 0 auto;">
+            <img src="images/bizchat-login.png" alt="BizChat — экран входа" style="width: 100%; border-radius: 26px; display: block;">
+          </div>
+          <div style="font-size: 13px; color: var(--gray); margin-top: 16px; font-weight: 500;">Авторизация</div>
+        </div>
+        <div class="reveal-scale stagger-2" style="text-align: center;">
+          <div style="width: 240px; border-radius: 32px; background: #1a1d2e; padding: 8px; box-shadow: 0 20px 60px rgba(108, 58, 255, 0.25), 0 0 0 1px rgba(255,255,255,0.06), 0 0 80px rgba(108, 58, 255, 0.1); margin: 0 auto; transform: translateY(-20px);">
+            <img src="images/bizchat-list.png" alt="BizChat — список чатов" style="width: 100%; border-radius: 26px; display: block;">
+          </div>
+          <div style="font-size: 13px; color: var(--gray); margin-top: -4px; font-weight: 500;">Список чатов</div>
+        </div>
+        <div class="reveal-scale stagger-3" style="text-align: center;">
+          <div style="width: 240px; border-radius: 32px; background: #1a1d2e; padding: 8px; box-shadow: 0 20px 60px rgba(108, 58, 255, 0.25), 0 0 0 1px rgba(255,255,255,0.06), 0 0 80px rgba(108, 58, 255, 0.1); margin: 0 auto;">
+            <img src="images/bizchat-chat.png" alt="BizChat — диалог с фото" style="width: 100%; border-radius: 26px; display: block;">
+          </div>
+          <div style="font-size: 13px; color: var(--gray); margin-top: 16px; font-weight: 500;">Диалог</div>
+        </div>
+        <div class="reveal-scale stagger-4" style="text-align: center;">
+          <div style="width: 240px; border-radius: 32px; background: #1a1d2e; padding: 8px; box-shadow: 0 20px 60px rgba(108, 58, 255, 0.25), 0 0 0 1px rgba(255,255,255,0.06), 0 0 80px rgba(108, 58, 255, 0.1); margin: 0 auto; transform: translateY(-20px);">
+            <img src="images/bizchat-swipe.png" alt="BizChat — удаление свайпом" style="width: 100%; border-radius: 26px; display: block;">
+          </div>
+          <div style="font-size: 13px; color: var(--gray); margin-top: -4px; font-weight: 500;">Свайп-действия</div>
+        </div>
+      </div>
+
+      <!-- Features grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto;">
+        <div class="advantage-card reveal stagger-1">
+          <div class="advantage-icon green">&#128274;</div>
+          <h3>Полная независимость</h3>
+          <p>Ваш сервер, ваши данные. Никакой зависимости от зарубежных платформ. Работает даже при блокировках.</p>
+        </div>
+        <div class="advantage-card reveal stagger-2">
+          <div class="advantage-icon purple">&#127463;&#127486;</div>
+          <h3>White-label</h3>
+          <p>Ваш бренд, логотип и цвета. Мессенджер выглядит как ваш собственный продукт.</p>
+        </div>
+        <div class="advantage-card reveal stagger-3">
+          <div class="advantage-icon orange">&#128101;</div>
+          <h3>Группы и каналы</h3>
+          <p>Личные и групповые чаты, роли участников, управление комьюнити — всё из коробки.</p>
+        </div>
+        <div class="advantage-card reveal stagger-4">
+          <div class="advantage-icon blue">&#9889;</div>
+          <h3>iOS + Android</h3>
+          <p>Нативное приложение для обеих платформ. Быстрое, плавное, современный интерфейс.</p>
+        </div>
+        <div class="advantage-card reveal stagger-5">
+          <div class="advantage-icon pink">&#128272;</div>
+          <h3>Шифрование</h3>
+          <p>End-to-end шифрование сообщений. Соответствие требованиям безопасности и 152-ФЗ.</p>
+        </div>
+        <div class="advantage-card reveal stagger-6">
+          <div class="advantage-icon yellow">&#128640;</div>
+          <h3>Запуск за 2 недели</h3>
+          <p>Готовое решение — не с нуля. Брендируем, разворачиваем на вашем сервере и запускаем.</p>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 48px;" class="reveal stagger-3">
+        <a href="#contact" class="btn-primary" style="display: inline-flex;">
+          Получить BizChat для своего бизнеса
+          <span>&#8594;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="section-label reveal">Портфолио</div>
+      <h2 class="section-title reveal stagger-1">Проекты, которыми<br>мы <span class="gradient-text">гордимся</span></h2>
+      <p class="section-subtitle reveal stagger-2">Каждый проект — это решённая бизнес-задача и довольный клиент</p>
+
+      <div class="portfolio-grid">
+        <!-- Project 1: Food Delivery -->
+        <div class="portfolio-card reveal-scale stagger-1">
+          <div class="portfolio-preview" style="background: linear-gradient(135deg, #1a0a0a 0%, #2d1515 100%);">
+            <div class="portfolio-phone">
+              <div class="portfolio-phone-notch"></div>
+              <div class="portfolio-screen">
+                <div class="p-screen food-app">
+                  <div class="food-header">
+                    <div>
+                      <div class="food-location">&#128205; Доставка</div>
+                      <div class="food-city">Минск</div>
+                    </div>
+                    <div style="font-size: 18px;">&#128276;</div>
+                  </div>
+                  <div class="food-search">&#128269; Поиск блюд и ресторанов</div>
+                  <div class="food-categories">
+                    <div class="food-cat active">
+                      <div class="food-cat-emoji">&#127829;</div>
+                      <div class="food-cat-text">Пицца</div>
+                    </div>
+                    <div class="food-cat">
+                      <div class="food-cat-emoji">&#127843;</div>
+                      <div class="food-cat-text">Суши</div>
+                    </div>
+                    <div class="food-cat">
+                      <div class="food-cat-emoji">&#127828;</div>
+                      <div class="food-cat-text">Бургер</div>
+                    </div>
+                  </div>
+                  <div class="food-item">
+                    <div class="food-img"></div>
+                    <div class="food-info">
+                      <div class="food-name">Маргарита XL</div>
+                      <div class="food-desc">Томаты, моцарелла, базилик</div>
+                      <div class="food-price">18.90 BYN</div>
+                    </div>
+                  </div>
+                  <div class="food-item">
+                    <div class="food-img green"></div>
+                    <div class="food-info">
+                      <div class="food-name">Поке с лососем</div>
+                      <div class="food-desc">Лосось, авокадо, рис</div>
+                      <div class="food-price">24.50 BYN</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tag">Доставка еды</div>
+            <h3>EatFast</h3>
+            <p>Сервис доставки еды для сети ресторанов в Минске с онлайн-оплатой и трекингом курьера</p>
+            <div class="portfolio-techs">
+              <span class="tech-badge">React Native</span>
+              <span class="tech-badge">Node.js</span>
+              <span class="tech-badge">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Fitness -->
+        <div class="portfolio-card reveal-scale stagger-2">
+          <div class="portfolio-preview" style="background: linear-gradient(135deg, #0a1628 0%, #0d1f3c 100%);">
+            <div class="portfolio-phone">
+              <div class="portfolio-phone-notch"></div>
+              <div class="portfolio-screen">
+                <div class="p-screen fitness-app">
+                  <div class="fit-header">
+                    <div class="fit-greeting">&#128170; Сегодня</div>
+                    <div class="fit-name">Тренировка</div>
+                  </div>
+                  <div class="fit-ring">
+                    <div class="fit-calories">
+                      <div class="fit-cal-value">847</div>
+                      <div class="fit-cal-label">kcal</div>
+                    </div>
+                  </div>
+                  <div class="fit-stats">
+                    <div class="fit-stat">
+                      <div class="fit-stat-icon">&#128099;</div>
+                      <div class="fit-stat-val">8,432</div>
+                      <div class="fit-stat-label">Шаги</div>
+                    </div>
+                    <div class="fit-stat">
+                      <div class="fit-stat-icon">&#128293;</div>
+                      <div class="fit-stat-val">847</div>
+                      <div class="fit-stat-label">Калории</div>
+                    </div>
+                    <div class="fit-stat">
+                      <div class="fit-stat-icon">&#9829;</div>
+                      <div class="fit-stat-val">72</div>
+                      <div class="fit-stat-label">Пульс</div>
+                    </div>
+                  </div>
+                  <div class="fit-workout">
+                    <div class="fit-workout-icon">&#127947;</div>
+                    <div>
+                      <div class="fit-workout-name">Силовая тренировка</div>
+                      <div class="fit-workout-time">45 мин &bull; Верхняя часть тела</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tag">Фитнес и здоровье</div>
+            <h3>FitTrack Pro</h3>
+            <p>Персональный фитнес-трекер с ИИ-тренером, планами питания и интеграцией с Apple Health</p>
+            <div class="portfolio-techs">
+              <span class="tech-badge">Flutter</span>
+              <span class="tech-badge">Firebase</span>
+              <span class="tech-badge">ML Kit</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: E-Commerce -->
+        <div class="portfolio-card reveal-scale stagger-3">
+          <div class="portfolio-preview" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+            <div class="portfolio-phone">
+              <div class="portfolio-phone-notch"></div>
+              <div class="portfolio-screen">
+                <div class="p-screen ecommerce-app">
+                  <div class="shop-header">
+                    <div class="shop-title">&#128722; Маркет</div>
+                    <div class="shop-cart">
+                      &#128722;
+                      <div class="shop-cart-badge">3</div>
+                    </div>
+                  </div>
+                  <div class="shop-banner">
+                    <div class="shop-banner-sub">Весенняя распродажа</div>
+                    <div class="shop-banner-title">Скидки до -40%</div>
+                    <div class="shop-banner-btn">Смотреть</div>
+                  </div>
+                  <div class="shop-products">
+                    <div class="shop-product">
+                      <div class="shop-product-img img1"></div>
+                      <div class="shop-product-name">Кроссовки</div>
+                      <div class="shop-product-price">189 BYN</div>
+                    </div>
+                    <div class="shop-product">
+                      <div class="shop-product-img img2"></div>
+                      <div class="shop-product-name">Сумка</div>
+                      <div class="shop-product-price">245 BYN</div>
+                    </div>
+                    <div class="shop-product">
+                      <div class="shop-product-img img3"></div>
+                      <div class="shop-product-name">Часы</div>
+                      <div class="shop-product-price">320 BYN</div>
+                    </div>
+                    <div class="shop-product">
+                      <div class="shop-product-img img4"></div>
+                      <div class="shop-product-name">Очки</div>
+                      <div class="shop-product-price">95 BYN</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tag">E-Commerce</div>
+            <h3>ShopHub</h3>
+            <p>Маркетплейс с AR-примеркой, умными рекомендациями и интеграцией с ЕРИП для оплаты</p>
+            <div class="portfolio-techs">
+              <span class="tech-badge">React Native</span>
+              <span class="tech-badge">GraphQL</span>
+              <span class="tech-badge">AWS</span>
+            </div>
+          </div>
+        </div>
+        <!-- Project 4: Web App -->
+        <div class="portfolio-card reveal-scale stagger-4">
+          <div class="portfolio-preview" style="background: linear-gradient(135deg, #0a1a1a 0%, #0d2d2d 100%);">
+            <div class="portfolio-phone" style="border-radius: 12px; aspect-ratio: 4/3; width: 85%;">
+              <div class="portfolio-screen" style="border-radius: 8px;">
+                <div class="p-screen" style="padding: 12px; background: #111827;">
+                  <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
+                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #FF5F57;"></div>
+                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #FFBD2E;"></div>
+                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #28C840;"></div>
+                    <div style="flex: 1; height: 16px; background: #1f2937; border-radius: 8px; margin-left: 8px; font-size: 7px; color: #6b7280; display: flex; align-items: center; padding-left: 8px;">crm.company.by</div>
+                  </div>
+                  <div style="display: flex; gap: 8px; height: calc(100% - 30px);">
+                    <div style="width: 40px; background: #1f2937; border-radius: 6px; padding: 8px 4px; display: flex; flex-direction: column; gap: 8px; align-items: center;">
+                      <div style="width: 20px; height: 20px; background: var(--primary); border-radius: 4px;"></div>
+                      <div style="width: 16px; height: 2px; background: #374151; border-radius: 1px;"></div>
+                      <div style="width: 16px; height: 2px; background: #374151; border-radius: 1px;"></div>
+                      <div style="width: 16px; height: 2px; background: #374151; border-radius: 1px;"></div>
+                    </div>
+                    <div style="flex: 1; display: flex; flex-direction: column; gap: 6px;">
+                      <div style="font-size: 9px; font-weight: 600; color: #e5e7eb;">Панель управления</div>
+                      <div style="display: flex; gap: 4px;">
+                        <div style="flex: 1; background: #1f2937; border-radius: 6px; padding: 6px; text-align: center;">
+                          <div style="font-size: 12px; font-weight: 700; color: var(--accent);">248</div>
+                          <div style="font-size: 6px; color: #6b7280;">Клиенты</div>
+                        </div>
+                        <div style="flex: 1; background: #1f2937; border-radius: 6px; padding: 6px; text-align: center;">
+                          <div style="font-size: 12px; font-weight: 700; color: var(--primary-light);">$12.4k</div>
+                          <div style="font-size: 6px; color: #6b7280;">Выручка</div>
+                        </div>
+                      </div>
+                      <div style="flex: 1; background: #1f2937; border-radius: 6px; padding: 6px;">
+                        <div style="font-size: 7px; color: #6b7280; margin-bottom: 4px;">Последние сделки</div>
+                        <div style="display: flex; flex-direction: column; gap: 3px;">
+                          <div style="display: flex; justify-content: space-between; font-size: 6px;">
+                            <span style="color: #e5e7eb;">ООО "Альфа"</span>
+                            <span style="color: var(--accent);">$2,400</span>
+                          </div>
+                          <div style="display: flex; justify-content: space-between; font-size: 6px;">
+                            <span style="color: #e5e7eb;">ИП Петров</span>
+                            <span style="color: var(--accent);">$1,800</span>
+                          </div>
+                          <div style="display: flex; justify-content: space-between; font-size: 6px;">
+                            <span style="color: #e5e7eb;">TechCorp</span>
+                            <span style="color: var(--accent);">$5,200</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-info">
+            <div class="portfolio-tag">Веб-приложение</div>
+            <h3>CRM Dashboard</h3>
+            <p>Веб-система управления клиентами и продажами с аналитикой, воронками и интеграцией с 1С</p>
+            <div class="portfolio-techs">
+              <span class="tech-badge">React</span>
+              <span class="tech-badge">Next.js</span>
+              <span class="tech-badge">PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USP -->
+  <section class="usp-section" id="usp">
+    <div class="container">
+      <div class="usp-grid">
+        <div class="usp-visual reveal-left">
+          <div class="usp-big-number">1</div>
+          <p style="font-size: 20px; color: var(--gray); margin-top: -20px;">неделя до запуска<br>вашего MVP</p>
+        </div>
+        <div class="reveal-right">
+          <div class="section-label">Наш подход</div>
+          <h2 class="section-title">Что делает нас<br><span class="gradient-text">особенными</span></h2>
+          <ul class="usp-list" style="margin-top: 32px;">
+            <li class="usp-item">
+              <div class="usp-check">&#10003;</div>
+              <div>
+                <h4>Гарантия результата</h4>
+                <p>Если приложение не проходит ревью Apple/Google — исправляем за наш счёт. Без дополнительных оплат.</p>
+              </div>
+            </li>
+            <li class="usp-item">
+              <div class="usp-check">&#10003;</div>
+              <div>
+                <h4>Еженедельные демо</h4>
+                <p>Каждую пятницу — демонстрация прогресса. Вы видите результат, а не просто отчёты.</p>
+              </div>
+            </li>
+            <li class="usp-item">
+              <div class="usp-check">&#10003;</div>
+              <div>
+                <h4>Исходный код — ваш</h4>
+                <p>Полная передача прав на код, дизайн и все материалы. Никакой привязки к нам.</p>
+              </div>
+            </li>
+            <li class="usp-item">
+              <div class="usp-check">&#10003;</div>
+              <div>
+                <h4>Интеграции с БY-сервисами</h4>
+                <p>ЕРИП, Белкарт, A1 Pay, SMS-аутентификация через белорусских операторов — всё из коробки.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="reviews">
+    <div class="container">
+      <div class="section-label reveal">Отзывы</div>
+      <h2 class="section-title reveal stagger-1">Клиенты <span class="gradient-text">рекомендуют</span></h2>
+      <p class="section-subtitle reveal stagger-2">Реальные отзывы от компаний, которые доверили нам свои проекты</p>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal stagger-1">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">"Сделали приложение для доставки за 6 недель. Качество дизайна поразило — клиенты думают, что мы заказывали в Европе. Отличная команда!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background: var(--gradient-1);">АК</div>
+            <div>
+              <div class="testimonial-name">Андрей Козлов</div>
+              <div class="testimonial-role">CEO, FoodExpress Минск</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal stagger-2">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">"Нам нужен был MVP для привлечения инвестиций. Ребята не только сделали приложение, но и помогли с презентацией для инвесторов. Раунд закрыт!"</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background: var(--gradient-2);">МС</div>
+            <div>
+              <div class="testimonial-name">Мария Савицкая</div>
+              <div class="testimonial-role">Founder, HealthTech Startup</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal stagger-3">
+          <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <p class="testimonial-text">"Третий проект вместе. Ценим за прозрачность, фиксированные сроки и то, что всегда на связи. Рекомендуем всем знакомым предпринимателям."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar" style="background: var(--gradient-3);">ДВ</div>
+            <div>
+              <div class="testimonial-name">Дмитрий Волков</div>
+              <div class="testimonial-role">CTO, RetailGroup BY</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-label reveal">Контакты</div>
+      <h2 class="section-title reveal stagger-1">Обсудим ваш<br><span class="gradient-text">проект?</span></h2>
+      <p class="section-subtitle reveal stagger-2">Оставьте заявку — свяжемся в течение 2 часов в рабочее время</p>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal-left">
+          <div class="contact-method">
+            <div class="contact-icon">&#9993;</div>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:i_shherbenko@mail.ru">i_shherbenko@mail.ru</a>
+            </div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-icon">&#9992;</div>
+            <div>
+              <h4>Telegram</h4>
+              <a href="https://t.me/biz_apps_bot" target="_blank">@biz_apps_bot</a>
+            </div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-icon">&#128247;</div>
+            <div>
+              <h4>Instagram</h4>
+              <a href="https://instagram.com/biz_apps_" target="_blank">@biz_apps_</a>
+            </div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-icon">&#128205;</div>
+            <div>
+              <h4>Офис</h4>
+              <p>Минск, Беларусь</p>
+            </div>
+          </div>
+
+          <div style="margin-top: 20px; padding: 24px; background: rgba(108, 58, 255, 0.08); border-radius: 16px; border: 1px solid rgba(108, 58, 255, 0.15);">
+            <p style="font-size: 14px; color: var(--light); line-height: 1.6;">
+              &#128161; <strong>Бесплатная консультация</strong><br>
+              <span style="color: var(--gray);">Расскажите о вашей идее — мы подготовим предварительную оценку стоимости и сроков бесплатно.</span>
+            </p>
+          </div>
+        </div>
+
+        <form class="contact-form reveal-right" id="contactForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Имя</label>
+              <input type="text" placeholder="Ваше имя" required>
+            </div>
+            <div class="form-group">
+              <label>Телефон / Telegram</label>
+              <input type="text" placeholder="+375 XX XXX-XX-XX">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="email@example.com" required>
+          </div>
+          <div class="form-group">
+            <label>Тип проекта</label>
+            <select>
+              <option value="">Выберите тип</option>
+              <option>Мобильное приложение (iOS + Android)</option>
+              <option>Только iOS</option>
+              <option>Только Android</option>
+              <option>Веб-приложение</option>
+              <option>Сайт / Лендинг</option>
+              <option>CRM / ERP / Бизнес-система</option>
+              <option>MVP / Прототип</option>
+              <option>Редизайн существующего продукта</option>
+              <option>Другое</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Расскажите о проекте</label>
+            <textarea placeholder="Опишите вашу идею, цели и примерный бюджет..."></textarea>
+          </div>
+          <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" style="margin-bottom: 16px;"></div>
+          <button type="submit" class="btn-submit">Отправить заявку &#8594;</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <div class="logo" style="margin-bottom: 8px;">BizApps</div>
+          <div class="footer-copy">&copy; 2026 BizApps. Все права защищены.</div>
+        </div>
+        <div class="footer-socials">
+          <a href="https://t.me/biz_apps_bot" target="_blank" class="footer-social" aria-label="Telegram">&#9992;</a>
+          <a href="https://instagram.com/biz_apps_" target="_blank" class="footer-social" aria-label="Instagram">&#128247;</a>
+          <a href="mailto:i_shherbenko@mail.ru" class="footer-social" aria-label="Email">&#9993;</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== SCROLL REVEAL =====
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // ===== NAVBAR SCROLL =====
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // ===== SCROLL PROGRESS =====
+    const scrollProgress = document.getElementById('scrollProgress');
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      scrollProgress.style.width = scrollPercent + '%';
+    });
+
+    // ===== CURSOR GLOW =====
+    const cursorGlow = document.getElementById('cursorGlow');
+    document.addEventListener('mousemove', (e) => {
+      cursorGlow.style.left = e.clientX + 'px';
+      cursorGlow.style.top = e.clientY + 'px';
+    });
+
+    // ===== COUNTER ANIMATION =====
+    const counters = document.querySelectorAll('.counter');
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const target = +counter.dataset.target;
+          const duration = 2000;
+          const start = performance.now();
+
+          function updateCounter(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            counter.textContent = Math.round(target * eased);
+            if (progress < 1) requestAnimationFrame(updateCounter);
+          }
+          requestAnimationFrame(updateCounter);
+          counterObserver.unobserve(counter);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(c => counterObserver.observe(c));
+
+    // ===== PARTICLE CANVAS =====
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 0.5;
+        this.speedX = (Math.random() - 0.5) * 0.3;
+        this.speedY = (Math.random() - 0.5) * 0.3;
+        this.opacity = Math.random() * 0.3 + 0.1;
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+          this.reset();
+        }
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(108, 58, 255, ${this.opacity})`;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 50; i++) {
+      particles.push(new Particle());
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.update();
+        p.draw();
+      });
+
+      // Draw connections
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 150) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(108, 58, 255, ${0.05 * (1 - dist / 150)})`;
+            ctx.lineWidth = 0.5;
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    // ===== SMOOTH SCROLL =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // ===== FORM SUBMIT =====
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('.btn-submit');
+
+      const recaptchaResponse = grecaptcha.getResponse();
+      if (!recaptchaResponse) {
+        btn.textContent = 'Подтвердите что вы не робот ↑';
+        btn.style.background = 'linear-gradient(135deg, #FF6B6B 0%, #FF4757 100%)';
+        setTimeout(() => {
+          btn.textContent = 'Отправить заявку →';
+          btn.style.background = '';
+        }, 3000);
+        return;
+      }
+
+      const inputs = this.querySelectorAll('input, select, textarea');
+      const name = inputs[0].value;
+      const phone = inputs[1].value;
+      const email = inputs[2].value;
+      const projectType = inputs[3].value;
+      const description = inputs[4].value;
+
+      const text = `📩 Новая заявка с сайта BizApps\n\n👤 Имя: ${name}\n📞 Телефон/Telegram: ${phone}\n📧 Email: ${email}\n📱 Тип проекта: ${projectType}\n💬 Описание: ${description}`;
+
+      btn.textContent = 'Отправка...';
+      btn.disabled = true;
+
+      try {
+        await fetch('https://api.telegram.org/bot8632566341:AAFLubJ0QTzXSBJIPCMCB4Qp_YI21CPPdmQ/sendMessage', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ chat_id: 499737785, text: text, parse_mode: 'HTML' })
+        });
+        btn.textContent = 'Отправлено! ✓';
+        btn.style.background = 'linear-gradient(135deg, #00D4AA 0%, #00B894 100%)';
+        setTimeout(() => {
+          btn.textContent = 'Отправить заявку →';
+          btn.style.background = '';
+          btn.disabled = false;
+          this.reset();
+          grecaptcha.reset();
+        }, 3000);
+      } catch (err) {
+        btn.textContent = 'Ошибка, попробуйте ещё раз';
+        btn.style.background = 'linear-gradient(135deg, #FF6B6B 0%, #FF4757 100%)';
+        setTimeout(() => {
+          btn.textContent = 'Отправить заявку →';
+          btn.style.background = '';
+          btn.disabled = false;
+        }, 3000);
+      }
+    });
+
+    // ===== MOBILE MENU =====
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const navLinks = document.querySelector('.nav-links');
+    mobileMenuBtn.addEventListener('click', () => {
+      if (navLinks.style.display === 'flex') {
+        navLinks.style.display = 'none';
+      } else {
+        navLinks.style.display = 'flex';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '100%';
+        navLinks.style.left = '0';
+        navLinks.style.right = '0';
+        navLinks.style.background = 'rgba(10, 10, 26, 0.95)';
+        navLinks.style.backdropFilter = 'blur(20px)';
+        navLinks.style.padding = '24px';
+        navLinks.style.borderBottom = '1px solid rgba(108, 58, 255, 0.1)';
+      }
+    });
+  </script>
+</body>
+</html>

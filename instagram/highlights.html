@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; background: #0A0A1A; padding: 60px; display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; }
+  .highlight {
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .highlight::before {
+    content: '';
+    position: absolute; inset: 0;
+    border-radius: 50%;
+    opacity: 0.08;
+    background: radial-gradient(circle at 30% 30%, white 0%, transparent 60%);
+  }
+  .highlight .icon { font-size: 80px; z-index: 1; }
+  .highlight .label {
+    font-size: 28px; font-weight: 700; color: white;
+    z-index: 1; text-transform: uppercase; letter-spacing: 2px;
+  }
+  .h1 { background: linear-gradient(135deg, #6C3AFF, #8B5CF6); }
+  .h2 { background: linear-gradient(135deg, #00D4AA, #00B894); }
+  .h3 { background: linear-gradient(135deg, #FF6B6B, #FF4757); }
+  .h4 { background: linear-gradient(135deg, #4ECDC4, #2ECC71); }
+  .h5 { background: linear-gradient(135deg, #6C3AFF, #00D4AA); }
+</style>
+</head>
+<body>
+  <div class="highlight h1">
+    <div class="icon">&#128241;</div>
+    <div class="label">Услуги</div>
+  </div>
+  <div class="highlight h2">
+    <div class="icon">&#128188;</div>
+    <div class="label">Кейсы</div>
+  </div>
+  <div class="highlight h3">
+    <div class="icon">&#128172;</div>
+    <div class="label">Отзывы</div>
+  </div>
+  <div class="highlight h4">
+    <div class="icon">&#9889;</div>
+    <div class="label">Процесс</div>
+  </div>
+  <div class="highlight h5">
+    <div class="icon">&#128276;</div>
+    <div class="label">BizChat</div>
+  </div>
+</body></html>
