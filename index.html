@@ -2674,17 +2674,26 @@
       const projectType = inputs[3].value;
       const description = inputs[4].value;
 
-      const text = `📩 Новая заявка с сайта BizApps\n\n👤 Имя: ${name}\n📞 Телефон/Telegram: ${phone}\n📧 Email: ${email}\n📱 Тип проекта: ${projectType}\n💬 Описание: ${description}`;
-
       btn.textContent = 'Отправка...';
       btn.disabled = true;
 
       try {
-        await fetch('https://api.telegram.org/bot8632566341:AAFLubJ0QTzXSBJIPCMCB4Qp_YI21CPPdmQ/sendMessage', {
+        const response = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ chat_id: 499737785, text: text, parse_mode: 'HTML' })
+          body: JSON.stringify({
+            access_key: '183512f5-1773-4d62-a26a-4aee6c43740d',
+            subject: 'Новая заявка с сайта BizApps',
+            from_name: 'BizApps',
+            name: name,
+            phone: phone,
+            email: email,
+            project_type: projectType,
+            description: description
+          })
         });
+        const data = await response.json();
+        if (!data.success) throw new Error('Ошибка отправки');
         btn.textContent = 'Отправлено! ✓';
         btn.style.background = 'linear-gradient(135deg, #00D4AA 0%, #00B894 100%)';
         setTimeout(() => {
