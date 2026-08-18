@@ -12,8 +12,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BizApps — Мобильные и веб-приложения, бизнес-системы под ключ</title>
-  <meta name="description" content="Разработка мобильных приложений на заказ в Минске — iOS, Android, веб-приложения и бизнес-системы под ключ. MVP от 1 недели. Фиксированная цена. Бесплатная оценка проекта.">
-  <meta name="keywords" content="разработка мобильных приложений, веб-приложения, бизнес-системы, CRM, ERP, мобильное приложение на заказ, iOS Android разработка, Беларусь, Россия, Минск, Москва, BizApps">
+  <meta name="description" content="BizApps — разработка мобильных и веб-приложений для клиентов по всему миру. iOS, Android и бизнес-системы под ключ.">
+  <meta name="keywords" content="разработка мобильных приложений, веб-приложения, бизнес-системы, CRM, ERP, мобильное приложение на заказ, iOS Android разработка, BizApps">
   <meta name="author" content="BizApps">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://bizapps.by/">
@@ -24,38 +24,33 @@
   <!-- Open Graph (Facebook, Telegram, LinkedIn) -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="BizApps — Мобильные и веб-приложения, бизнес-системы под ключ">
-  <meta property="og:description" content="Разработка мобильных приложений на заказ в Минске — iOS, Android, веб-приложения и бизнес-системы. MVP от 1 недели. Бесплатная оценка.">
+  <meta property="og:description" content="BizApps — разработка мобильных и веб-приложений для клиентов по всему миру.">
   <meta property="og:url" content="https://bizapps.by/">
   <meta property="og:site_name" content="BizApps">
-  <meta property="og:locale" content="ru_BY">
+  <meta property="og:locale" content="ru_RU">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="BizApps — Мобильные и веб-приложения, бизнес-системы под ключ">
-  <meta name="twitter:description" content="Разработка мобильных приложений на заказ в Минске — iOS, Android, веб-приложения и бизнес-системы. MVP от 1 недели. Бесплатная оценка.">
+  <meta name="twitter:description" content="BizApps — разработка мобильных и веб-приложений для клиентов по всему миру.">
 
-  <!-- Schema.org LocalBusiness -->
+  <!-- Schema.org Organization -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "Organization",
     "name": "BizApps",
-    "description": "Разработка мобильных приложений, веб-приложений и бизнес-систем под ключ в Минске. iOS, Android, React Native, Flutter.",
+    "legalName": "Individual Entrepreneur ILYA SHCHARBENKA",
+    "description": "BizApps — разработка мобильных и веб-приложений для клиентов по всему миру.",
     "url": "https://bizapps.by",
-    "email": "i_shherbenko@mail.ru",
+    "email": "contact@bizapps.by",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Минск",
-      "addressCountry": "BY"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "53.9006",
-      "longitude": "27.5590"
+      "addressCountry": "GE"
     },
     "priceRange": "$$",
     "serviceType": ["Разработка мобильных приложений", "iOS разработка", "Android разработка", "Веб-приложения", "CRM системы", "ERP системы", "Бизнес-системы", "Корпоративный мессенджер", "React Native", "Flutter"],
-    "areaServed": ["BY", "RU"],
+    "areaServed": "Worldwide",
     "sameAs": [
       "https://t.me/biz_apps_bot",
       "https://instagram.com/biz_apps_"
@@ -93,10 +88,10 @@
       },
       {
         "@type": "Question",
-        "name": "Вы работаете с клиентами из России?",
+        "name": "Вы работаете с клиентами из других стран?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Да, мы работаем с клиентами из Беларуси и России. Общение и управление проектом ведётся удалённо."
+          "text": "Да, мы работаем с клиентами по всему миру. Общение и управление проектом может вестись удалённо."
         }
       }
     ]
@@ -1589,6 +1584,37 @@
       background: var(--dark);
     }
 
+    .privacy-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 20px;
+      color: var(--gray);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .privacy-consent input {
+      width: 18px;
+      height: 18px;
+      margin-top: 1px;
+      accent-color: var(--primary);
+      flex: 0 0 auto;
+    }
+
+    .privacy-consent a,
+    .footer-links a,
+    .footer-legal a {
+      color: var(--primary-light);
+      text-decoration: none;
+    }
+
+    .privacy-consent a:hover,
+    .footer-links a:hover,
+    .footer-legal a:hover {
+      text-decoration: underline;
+    }
+
     .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1625,7 +1651,8 @@
     .footer-content {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
+      gap: 40px;
     }
 
     .footer-copy {
@@ -1636,6 +1663,24 @@
     .footer-socials {
       display: flex;
       gap: 16px;
+    }
+
+    .footer-details {
+      max-width: 560px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      margin-bottom: 14px;
+      font-size: 14px;
+    }
+
+    .footer-legal {
+      color: var(--gray);
+      font-size: 12px;
+      line-height: 1.7;
     }
 
     .footer-social {
@@ -1792,7 +1837,8 @@
           </h1>
           <p class="reveal stagger-2">
             Мобильные приложения, веб-приложения и бизнес-системы под ключ.
-            От концепции до запуска — MVP от 1 недели, полный продукт от 4 недель. Работаем с клиентами из Беларуси и России.
+            BizApps — разработка мобильных и веб-приложений для клиентов по всему миру.
+            От концепции до запуска — MVP от 1 недели, полный продукт от 4 недель.
           </p>
           <div class="hero-buttons reveal stagger-3">
             <a href="#contact" class="btn-primary">
@@ -1920,7 +1966,7 @@
         <div class="advantage-card reveal stagger-6">
           <div class="advantage-icon yellow">&#127463;&#127486;</div>
           <h3>Знаем рынок РБ и РФ</h3>
-          <p>Глубокая экспертиза в рынках Беларуси и России: интеграции с ЕРИП, ЮKassa, локальные платёжные системы, локализация и понимание аудитории обоих рынков.</p>
+          <p>Работаем с клиентами из Беларуси, Грузии и других стран: учитываем локальные платёжные системы, требования к локализации и особенности аудитории каждого рынка.</p>
         </div>
       </div>
     </div>
@@ -2420,8 +2466,15 @@
           <div class="contact-method">
             <div class="contact-icon">&#9993;</div>
             <div>
-              <h4>Email</h4>
-              <a href="mailto:i_shherbenko@mail.ru">i_shherbenko@mail.ru</a>
+              <h4>Общие вопросы</h4>
+              <a href="mailto:contact@bizapps.by">contact@bizapps.by</a>
+            </div>
+          </div>
+          <div class="contact-method">
+            <div class="contact-icon">&#128172;</div>
+            <div>
+              <h4>Поддержка</h4>
+              <a href="mailto:support@bizapps.by">support@bizapps.by</a>
             </div>
           </div>
           <div class="contact-method">
@@ -2441,8 +2494,8 @@
           <div class="contact-method">
             <div class="contact-icon">&#128205;</div>
             <div>
-              <h4>Офис</h4>
-              <p>Минск, Беларусь</p>
+              <h4>География работы</h4>
+              <p>Клиенты по всему миру</p>
             </div>
           </div>
 
@@ -2488,6 +2541,10 @@
             <label>Расскажите о проекте</label>
             <textarea placeholder="Опишите вашу идею, цели и примерный бюджет..."></textarea>
           </div>
+          <label class="privacy-consent">
+            <input type="checkbox" name="privacy_consent" required>
+            <span>Я согласен с <a href="/privacy/" target="_blank">Политикой конфиденциальности</a></span>
+          </label>
           <div class="g-recaptcha" data-sitekey="6Lctu60sAAAAAJKXFyH_Q-AGYmW9y7HoUiX7tsG_" style="margin-bottom: 16px;"></div>
           <button type="submit" class="btn-submit">Отправить заявку &#8594;</button>
         </form>
@@ -2503,10 +2560,25 @@
           <div class="logo" style="margin-bottom: 8px;">BizApps</div>
           <div class="footer-copy">&copy; 2026 BizApps. Все права защищены.</div>
         </div>
+        <div class="footer-details">
+          <nav class="footer-links" aria-label="Ссылки в подвале">
+            <a href="/privacy/">Политика конфиденциальности</a>
+            <a href="/support/">Поддержка</a>
+            <a href="mailto:contact@bizapps.by">contact@bizapps.by</a>
+            <a href="mailto:support@bizapps.by">support@bizapps.by</a>
+          </nav>
+          <div class="footer-legal" lang="en">
+            BizApps is operated by Individual Entrepreneur ILYA SHCHARBENKA<br>
+            Identification Number: 345720053<br>
+            Registered in Georgia<br>
+            Contact: <a href="mailto:contact@bizapps.by">contact@bizapps.by</a><br>
+            Support: <a href="mailto:support@bizapps.by">support@bizapps.by</a>
+          </div>
+        </div>
         <div class="footer-socials">
-          <a href="https://t.me/biz_apps_bot" target="_blank" class="footer-social" aria-label="Telegram">&#9992;</a>
-          <a href="https://instagram.com/biz_apps_" target="_blank" class="footer-social" aria-label="Instagram">&#128247;</a>
-          <a href="mailto:i_shherbenko@mail.ru" class="footer-social" aria-label="Email">&#9993;</a>
+          <a href="https://t.me/biz_apps_bot" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="Telegram">&#9992;</a>
+          <a href="https://instagram.com/biz_apps_" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="Instagram">&#128247;</a>
+          <a href="mailto:contact@bizapps.by" class="footer-social" aria-label="Email">&#9993;</a>
         </div>
       </div>
     </div>
