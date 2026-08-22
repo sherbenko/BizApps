@@ -712,10 +712,8 @@
     }
 
     .hero-showcase {
-      --phone-a-x: 0px;
-      --phone-a-y: 0px;
-      --phone-b-x: 0px;
-      --phone-b-y: 0px;
+      --phone-x: 0px;
+      --phone-y: 0px;
       position: relative;
       min-height: 730px;
       margin-top: 96px;
@@ -785,44 +783,107 @@
       line-height: 1.45;
     }
 
+    .hero-project-switch {
+      display: inline-flex;
+      gap: 4px;
+      margin-top: 28px;
+      padding: 4px;
+      border: 1px solid rgba(10, 10, 10, 0.12);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.38);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-project-tab {
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: rgba(10, 10, 10, 0.58);
+      padding: 10px 16px;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    }
+
+    .hero-project-tab:hover {
+      color: #0A0A0A;
+    }
+
+    .hero-project-tab.is-active {
+      background: #0A0A0A;
+      color: #FFFFFF;
+    }
+
+    .hero-project-tab:focus-visible {
+      outline: 2px solid #5A46FF;
+      outline-offset: 2px;
+    }
+
+    .hero-device-stage {
+      position: absolute;
+      right: 9%;
+      bottom: -78px;
+      z-index: 2;
+      width: 312px;
+      height: 690px;
+      transform: translate3d(var(--phone-x), var(--phone-y), 0);
+      transition: transform 0.2s ease-out;
+      will-change: transform;
+    }
+
     .hero-device {
       position: absolute;
-      z-index: 2;
-      width: 292px;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      margin: 0;
       padding: 8px;
       border-radius: 42px;
       background: #111111;
       box-shadow: 0 35px 70px rgba(0, 0, 0, 0.32);
-      will-change: transform;
-      transition: transform 0.2s ease-out;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(46px) scale(0.94) rotate(0deg);
+      transition: opacity 0.55s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .hero-device.is-active {
+      opacity: 1;
+      pointer-events: auto;
     }
 
     .hero-device img {
       display: block;
       width: 100%;
+      height: auto;
       border-radius: 34px;
     }
 
     .hero-device-krista {
-      right: 31%;
-      bottom: -68px;
-      transform: translate3d(var(--phone-a-x), var(--phone-a-y), 0) rotate(-7deg);
+      transform: translateY(46px) scale(0.94) rotate(-4deg);
+    }
+
+    .hero-device-krista.is-active {
+      transform: translateY(0) scale(1) rotate(-4deg);
     }
 
     .hero-device-bizchat {
-      right: 7%;
-      bottom: -104px;
       padding: 0;
       background: transparent;
       box-shadow: none;
-      overflow: hidden;
-      filter: drop-shadow(0 35px 35px rgba(0, 0, 0, 0.26));
-      transform: translate3d(var(--phone-b-x), var(--phone-b-y), 0) rotate(8deg);
+      transform: translateY(46px) scale(0.94) rotate(4deg);
     }
 
     .hero-device-bizchat img {
-      border-radius: 0;
-      clip-path: inset(4px round 46px);
+      border-radius: 38px;
+      filter: drop-shadow(0 28px 28px rgba(0, 0, 0, 0.24));
+    }
+
+    .hero-device-bizchat.is-active {
+      transform: translateY(0) scale(1) rotate(4deg);
     }
 
     .hero-project-stats {
@@ -2137,9 +2198,11 @@
       .hero-stats { justify-content: center; }
       .hero { min-height: auto; padding-top: 150px; }
       .hero-showcase { min-height: 680px; }
-      .hero-device { width: 250px; }
-      .hero-device-krista { right: 30%; }
-      .hero-device-bizchat { right: 3%; }
+      .hero-device-stage {
+        right: 4%;
+        width: 270px;
+        height: 598px;
+      }
       .hero-project-copy { left: 42px; }
       .hero-project-stats { left: 42px; }
       .advantages-grid { grid-template-columns: repeat(2, 1fr); }
@@ -2194,7 +2257,7 @@
         justify-content: center;
       }
       .hero-showcase {
-        min-height: 680px;
+        min-height: 600px;
         margin-top: 64px;
         border-radius: 24px;
       }
@@ -2205,21 +2268,21 @@
       }
       .hero-project-copy h2 { font-size: 44px; }
       .hero-project-copy p { display: none; }
+      .hero-project-switch { margin-top: 20px; }
       .hero-project-stats {
         display: none;
       }
       .hero-project-stat strong { font-size: 22px; }
       .hero-project-stat span { font-size: 10px; }
-      .hero-device { width: 205px; }
-      .hero-device-krista {
+      .hero-device-stage {
         right: auto;
-        left: -16px;
-        bottom: 72px;
+        bottom: -95px;
+        left: 50%;
+        width: 218px;
+        height: 482px;
+        transform: translate3d(calc(-50% + var(--phone-x)), var(--phone-y), 0);
       }
-      .hero-device-bizchat {
-        right: -24px;
-        bottom: 54px;
-      }
+      .hero-device-bizchat img { border-radius: 28px; }
       .advantages-grid { grid-template-columns: 1fr; }
       .portfolio-grid { grid-template-columns: 1fr; }
       .testimonials-grid { grid-template-columns: 1fr; }
@@ -2233,6 +2296,7 @@
     @media (prefers-reduced-motion: reduce) {
       .hero-intro,
       .hero-showcase,
+      .hero-device-stage,
       .hero-device,
       .hero-title-line-inner,
       .hero-summary,
@@ -3583,6 +3647,22 @@
           <div class="hero-project-label">Избранные проекты</div>
           <h2>Продукты с характером</h2>
           <p>Два разных продукта, объединённых вниманием к деталям и понятным пользовательским опытом.</p>
+          <div class="hero-project-switch" role="tablist" aria-label="Выбрать проект">
+            <button
+              class="hero-project-tab is-active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              data-hero-project="krista"
+            >Krista</button>
+            <button
+              class="hero-project-tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              data-hero-project="bizchat"
+            >BizChat</button>
+          </div>
         </div>
 
         <div class="hero-project-stats" aria-label="Показатели студии">
@@ -3600,12 +3680,40 @@
           </div>
         </div>
 
-        <figure class="hero-device hero-device-krista">
-          <img src="images/krista-nutrition-home.png" alt="Krista Nutrition — приложение с рецептами">
-        </figure>
-        <figure class="hero-device hero-device-bizchat">
-          <img src="images/bizchat-list.png" alt="BizChat — корпоративный мессенджер">
-        </figure>
+        <div class="hero-device-stage" aria-live="polite">
+          <figure class="hero-device hero-device-krista is-active" data-project-device="krista">
+            <picture>
+              <source type="image/webp" srcset="images/krista-nutrition-home.webp">
+              <img
+                src="images/krista-nutrition-home.png"
+                width="390"
+                height="844"
+                alt="Krista Nutrition — приложение с рецептами"
+                decoding="async"
+              >
+            </picture>
+          </figure>
+          <figure
+            class="hero-device hero-device-bizchat"
+            data-project-device="bizchat"
+            aria-hidden="true"
+          >
+            <picture>
+              <source
+                type="image/webp"
+                data-srcset="images/bizchat-list-420.webp 420w, images/bizchat-list-640.webp 640w"
+                data-sizes="(max-width: 768px) 218px, 312px"
+              >
+              <img
+                data-src="images/bizchat-list.png"
+                width="868"
+                height="1806"
+                alt="BizChat — корпоративный мессенджер"
+                decoding="async"
+              >
+            </picture>
+          </figure>
+        </div>
       </div>
     </div>
   </section>
@@ -4464,6 +4572,89 @@
     const processSpacers = [...document.querySelectorAll('.process-spacer')];
     const processSteps = [...document.querySelectorAll('.process-step')];
     const processMobileQuery = window.matchMedia('(max-width: 768px)');
+    const heroProjectMobileQuery = window.matchMedia('(max-width: 768px)');
+    const heroProjectTabs = [...document.querySelectorAll('[data-hero-project]')];
+    const heroProjectDevices = [...document.querySelectorAll('[data-project-device]')];
+    const heroImageLoadPromises = new Map();
+    let activeHeroProject = 'krista';
+    let pendingHeroProject = 'krista';
+    let heroProjectRequestId = 0;
+
+    const loadHeroProjectImage = async (project) => {
+      const device = heroProjectDevices.find((item) => item.dataset.projectDevice === project);
+      const image = device?.querySelector('img');
+
+      if (!device || !image || image.dataset.loaded === 'true' || !image.dataset.src) return;
+      if (heroImageLoadPromises.has(project)) return heroImageLoadPromises.get(project);
+
+      const loadPromise = (async () => {
+        device.querySelectorAll('source[data-srcset]').forEach((source) => {
+          source.srcset = source.dataset.srcset;
+          source.sizes = source.dataset.sizes || 'auto';
+        });
+        image.src = image.dataset.src;
+
+        try {
+          await image.decode();
+        } catch {
+          if (!image.complete) {
+            await new Promise((resolve) => {
+              image.addEventListener('load', resolve, { once: true });
+              image.addEventListener('error', resolve, { once: true });
+            });
+          }
+        }
+
+        image.dataset.loaded = 'true';
+      })();
+
+      heroImageLoadPromises.set(project, loadPromise);
+      return loadPromise;
+    };
+
+    const setHeroProject = async (project) => {
+      if (project === pendingHeroProject) return;
+
+      pendingHeroProject = project;
+      const requestId = ++heroProjectRequestId;
+      if (project === activeHeroProject) return;
+
+      await loadHeroProjectImage(project);
+      if (requestId !== heroProjectRequestId || project !== pendingHeroProject) return;
+
+      activeHeroProject = project;
+      heroProjectTabs.forEach((tab) => {
+        const isActive = tab.dataset.heroProject === project;
+        tab.classList.toggle('is-active', isActive);
+        tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+      heroProjectDevices.forEach((device) => {
+        const isActive = device.dataset.projectDevice === project;
+        device.classList.toggle('is-active', isActive);
+        device.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+      });
+    };
+
+    heroProjectTabs.forEach((tab) => {
+      tab.addEventListener('click', () => setHeroProject(tab.dataset.heroProject));
+    });
+
+    const updateHeroProjectFromScroll = () => {
+      if (heroProjectMobileQuery.matches || prefersReducedMotion) return;
+
+      const showcaseBounds = heroShowcase.getBoundingClientRect();
+      const project = showcaseBounds.top < window.innerHeight * 0.28 ? 'bizchat' : 'krista';
+      setHeroProject(project);
+    };
+
+    const heroProjectPreloadObserver = new IntersectionObserver((entries, observer) => {
+      if (!entries.some((entry) => entry.isIntersecting) || heroProjectMobileQuery.matches) return;
+
+      loadHeroProjectImage('bizchat');
+      observer.disconnect();
+    }, { rootMargin: '300px 0px' });
+
+    heroProjectPreloadObserver.observe(heroShowcase);
 
     const setProcessStepProgress = (step, progress) => {
       const normalizedProgress = Math.max(0, Math.min(1, progress));
@@ -4476,8 +4667,25 @@
       );
     };
 
+    const updateMobileProcessCards = () => {
+      const activationLine = window.innerHeight * 0.76;
+
+      processSteps.forEach((step) => {
+        if (step.classList.contains('is-active')) return;
+        if (step.getBoundingClientRect().top > activationLine) return;
+
+        step.classList.add('is-active');
+        step.querySelector('.process-toggle')?.setAttribute('aria-expanded', 'true');
+      });
+    };
+
     const updateProcessCards = () => {
-      if (!processScroll || processMobileQuery.matches) return;
+      if (!processScroll) return;
+
+      if (processMobileQuery.matches) {
+        updateMobileProcessCards();
+        return;
+      }
 
       const activationLine = window.innerHeight * 0.72;
 
@@ -4505,10 +4713,7 @@
           step.style.removeProperty('--process-row');
         });
 
-        if (!processSteps.some((step) => step.classList.contains('is-active'))) {
-          processSteps[0]?.classList.add('is-active');
-          processSteps[0]?.querySelector('.process-toggle')?.setAttribute('aria-expanded', 'true');
-        }
+        updateMobileProcessCards();
         return;
       }
 
@@ -4551,6 +4756,8 @@
         window.scrollY > attentionStart && window.scrollY < attentionEnd
       );
 
+      updateHeroProjectFromScroll();
+
       if (prefersReducedMotion) return;
 
       const scrollRange = Math.max(1, heroSection.offsetHeight - window.innerHeight);
@@ -4575,20 +4782,18 @@
 
     if (!prefersReducedMotion) {
       heroShowcase.addEventListener('pointermove', (event) => {
+        if (event.pointerType === 'touch') return;
+
         const bounds = heroShowcase.getBoundingClientRect();
         const x = (event.clientX - bounds.left) / bounds.width - 0.5;
         const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-        heroShowcase.style.setProperty('--phone-a-x', `${x * 24}px`);
-        heroShowcase.style.setProperty('--phone-a-y', `${y * 18}px`);
-        heroShowcase.style.setProperty('--phone-b-x', `${x * -20}px`);
-        heroShowcase.style.setProperty('--phone-b-y', `${y * -14}px`);
+        heroShowcase.style.setProperty('--phone-x', `${x * 20}px`);
+        heroShowcase.style.setProperty('--phone-y', `${y * 14}px`);
       });
 
       heroShowcase.addEventListener('pointerleave', () => {
-        heroShowcase.style.setProperty('--phone-a-x', '0px');
-        heroShowcase.style.setProperty('--phone-a-y', '0px');
-        heroShowcase.style.setProperty('--phone-b-x', '0px');
-        heroShowcase.style.setProperty('--phone-b-y', '0px');
+        heroShowcase.style.setProperty('--phone-x', '0px');
+        heroShowcase.style.setProperty('--phone-y', '0px');
       });
 
       document.querySelectorAll('.btn-primary, .nav-cta, .btn-submit').forEach((button) => {
