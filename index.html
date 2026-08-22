@@ -265,13 +265,24 @@
       font-weight: 800;
       color: #0A0A0A;
       letter-spacing: -0.5px;
+      overflow: hidden;
       transition: color 0.4s ease;
+    }
+
+    .logo > span {
+      display: block;
+      transform: translateY(115%);
+      animation: nav-text-reveal 0.8s 0.02s both cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .nav-links {
       display: flex;
       gap: 36px;
       list-style: none;
+    }
+
+    .nav-links li {
+      overflow: hidden;
     }
 
     .nav-links a {
@@ -281,7 +292,18 @@
       font-weight: 500;
       transition: color 0.3s;
       position: relative;
+      display: block;
+      transform: translateY(115%);
+      animation: nav-text-reveal 0.75s both cubic-bezier(0.16, 1, 0.3, 1);
     }
+
+    .nav-links li:nth-child(1) a { animation-delay: 0.05s; }
+    .nav-links li:nth-child(2) a { animation-delay: 0.08s; }
+    .nav-links li:nth-child(3) a { animation-delay: 0.11s; }
+    .nav-links li:nth-child(4) a { animation-delay: 0.14s; }
+    .nav-links li:nth-child(5) a { animation-delay: 0.17s; }
+    .nav-links li:nth-child(6) a { animation-delay: 0.2s; }
+    .nav-links li:nth-child(7) a { animation-delay: 0.23s; }
 
     .nav-links a::after {
       content: '';
@@ -298,6 +320,8 @@
     .nav-links a:hover::after { width: 100%; }
 
     .nav-cta {
+      position: relative;
+      isolation: isolate;
       padding: 10px 24px;
       background: #0A0A0A;
       border: none;
@@ -308,6 +332,27 @@
       cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
       text-decoration: none;
+      animation: nav-control-reveal 0.8s 0.22s backwards cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-cta::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border: 2px solid rgba(90, 70, 255, 0.72);
+      border-radius: inherit;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .nav-cta.is-attention-ready::before {
+      animation: nav-cta-attention 4.6s infinite cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav-cta:hover::before,
+    .nav-cta:focus-visible::before {
+      animation: none;
+      opacity: 0;
     }
 
     .nav-cta:hover {
@@ -327,6 +372,49 @@
     .navbar.scrolled .nav-cta {
       background: var(--white);
       color: var(--dark);
+    }
+
+    .mobile-menu-btn {
+      animation: nav-control-reveal 0.8s 0.12s backwards cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes nav-text-reveal {
+      from { transform: translateY(115%); }
+      to { transform: translateY(0); }
+    }
+
+    @keyframes nav-control-reveal {
+      from {
+        opacity: 0;
+        clip-path: inset(100% 0 0 round 50px);
+      }
+      to {
+        opacity: 1;
+        clip-path: inset(0 round 50px);
+      }
+    }
+
+    @keyframes nav-cta-attention {
+      0%, 10%, 24%, 38%, 100% {
+        opacity: 0;
+        transform: scale(1);
+      }
+      14% {
+        opacity: 0.55;
+        transform: scale(1);
+      }
+      22% {
+        opacity: 0;
+        transform: scale(1.2);
+      }
+      28% {
+        opacity: 0.32;
+        transform: scale(1);
+      }
+      36% {
+        opacity: 0;
+        transform: scale(1.13);
+      }
     }
 
     .navbar.scrolled .mobile-menu-btn {
@@ -553,35 +641,36 @@
       will-change: transform, opacity;
     }
 
-    .hero-kicker {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 28px;
-      color: #525252;
-      font-size: 14px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      animation: hero-item-in 0.8s 0.05s both cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .hero-kicker::before {
-      content: '';
-      width: 28px;
-      height: 2px;
-      background: #0A0A0A;
-    }
-
     .hero h1.hero-title {
       max-width: 1080px;
       margin: 0 auto;
-      font-size: clamp(64px, 7.6vw, 118px);
+      font-size: clamp(60px, 7vw, 108px);
       font-weight: 600;
       line-height: 0.94;
       letter-spacing: -0.075em;
       text-wrap: balance;
-      animation: hero-item-in 0.9s 0.12s both cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .hero-title-line {
+      display: block;
+      margin-bottom: -0.08em;
+      padding-bottom: 0.08em;
+      overflow: hidden;
+    }
+
+    .hero-title-line-inner {
+      display: block;
+      transform: translateY(115%);
+      animation: hero-line-reveal 1.05s both cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform;
+    }
+
+    .hero-title-line:nth-child(1) .hero-title-line-inner {
+      animation-delay: 0.12s;
+    }
+
+    .hero-title-line:nth-child(2) .hero-title-line-inner {
+      animation-delay: 0.22s;
     }
 
     .hero-summary {
@@ -591,7 +680,7 @@
       font-size: clamp(18px, 1.6vw, 24px) !important;
       line-height: 1.35 !important;
       text-wrap: balance;
-      animation: hero-item-in 0.9s 0.2s both cubic-bezier(0.16, 1, 0.3, 1);
+      animation: hero-item-in 0.85s 0.46s both cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .hero-actions {
@@ -599,7 +688,7 @@
       justify-content: center;
       gap: 12px;
       margin-top: 36px;
-      animation: hero-item-in 0.9s 0.28s both cubic-bezier(0.16, 1, 0.3, 1);
+      animation: hero-item-in 0.85s 0.58s both cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .hero .btn-primary {
@@ -637,7 +726,7 @@
       transform: translateY(var(--hero-stage-y)) scale(var(--hero-stage-scale));
       transform-origin: center top;
       will-change: transform;
-      animation: hero-stage-in 1.1s 0.3s both cubic-bezier(0.16, 1, 0.3, 1);
+      animation: hero-stage-in 1.1s 0.7s both cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .hero-showcase::before,
@@ -762,6 +851,11 @@
     @keyframes hero-item-in {
       from { opacity: 0; transform: translateY(36px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes hero-line-reveal {
+      from { transform: translateY(115%); }
+      to { transform: translateY(0); }
     }
 
     @keyframes hero-stage-in {
@@ -2084,14 +2178,6 @@
         letter-spacing: -0.065em;
         overflow-wrap: anywhere;
       }
-      .hero-kicker {
-        justify-content: center;
-        width: 100%;
-        font-size: 10px;
-        line-height: 1.4;
-        white-space: normal;
-      }
-      .hero-kicker::before { flex: 0 0 24px; }
       .hero-summary {
         max-width: calc(100vw - 40px) !important;
         margin-top: 28px !important;
@@ -2147,10 +2233,22 @@
     @media (prefers-reduced-motion: reduce) {
       .hero-intro,
       .hero-showcase,
-      .hero-device {
+      .hero-device,
+      .hero-title-line-inner,
+      .hero-summary,
+      .hero-actions,
+      .logo > span,
+      .nav-links a,
+      .nav-cta,
+      .mobile-menu-btn {
         transform: none !important;
         animation: none !important;
         transition: none !important;
+      }
+
+      .nav-cta::before {
+        display: none;
+        animation: none !important;
       }
     }
 
@@ -3194,6 +3292,242 @@
         transform: scale(0.72);
       }
     }
+
+    /* ===== SCROLL-DRIVEN PROCESS ===== */
+    .process-scroll {
+      position: relative;
+      margin-top: 90px;
+    }
+
+    .process-spacers {
+      display: grid;
+      gap: 12px;
+    }
+
+    .process-spacer {
+      height: clamp(220px, 25vh, 260px);
+    }
+
+    .process-timeline {
+      position: absolute;
+      inset: 0 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 12px;
+      margin: 0;
+      border: 0;
+    }
+
+    .process-step {
+      --process-progress: 0;
+      --process-row: 0fr;
+      position: relative;
+      display: block;
+      min-width: 0;
+      min-height: 0;
+      padding: 0;
+      overflow: hidden;
+      border: 0;
+      border-radius: 28px;
+      background: #F5F3EF;
+      color: #0A0A0A;
+      transition: color 0.35s ease, box-shadow 0.45s ease;
+    }
+
+    .process-step::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: #0A0A0A;
+      opacity: var(--process-progress);
+      pointer-events: none;
+    }
+
+    .process-step.is-active {
+      color: #FFFFFF;
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.18);
+    }
+
+    .process-toggle {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr) 48px;
+      align-items: center;
+      gap: 24px;
+      padding: 30px 34px;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: default;
+    }
+
+    .process-step .process-number {
+      width: auto;
+      height: auto;
+      min-width: 0;
+      margin: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      color: inherit;
+      font-size: 18px;
+      font-weight: 500;
+      opacity: 0.45;
+    }
+
+    .process-step .process-number::before {
+      content: '0';
+    }
+
+    .process-title {
+      font-size: clamp(28px, 3.4vw, 48px);
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .process-indicator {
+      position: relative;
+      width: 48px;
+      height: 48px;
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      opacity: 0.55;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+    }
+
+    .process-indicator::before,
+    .process-indicator::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 16px;
+      height: 1px;
+      background: currentColor;
+      transform: translate(-50%, -50%);
+    }
+
+    .process-indicator::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    .process-step.is-active .process-indicator {
+      opacity: 1;
+      transform: rotate(45deg);
+    }
+
+    .process-panel {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-rows: var(--process-row);
+    }
+
+    .process-panel-inner {
+      min-height: 0;
+      overflow: hidden;
+      padding: 0 116px 0 130px;
+      opacity: var(--process-progress);
+    }
+
+    .process-panel-inner p {
+      max-width: 680px;
+      color: inherit;
+      font-size: 18px;
+      line-height: 1.5;
+      opacity: 0.72;
+    }
+
+    .process-panel-inner .process-duration {
+      display: inline-flex;
+      margin: 28px 0 36px;
+      padding: 8px 16px;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.14);
+      color: inherit;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .process-scroll {
+        margin-top: 54px;
+      }
+
+      .process-spacers {
+        display: none;
+      }
+
+      .process-timeline {
+        position: static;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 10px;
+      }
+
+      .process-step {
+        min-height: 0;
+        border: 0;
+        border-radius: 20px;
+      }
+
+      .process-step.is-active {
+        --process-progress: 1;
+        --process-row: 1fr;
+      }
+
+      .process-toggle {
+        grid-template-columns: 38px minmax(0, 1fr) 38px;
+        gap: 12px;
+        padding: 22px 18px;
+        cursor: pointer;
+      }
+
+      .process-step .process-number {
+        margin: 0;
+        font-size: 13px;
+      }
+
+      .process-title {
+        font-size: 24px;
+      }
+
+      .process-indicator {
+        width: 38px;
+        height: 38px;
+      }
+
+      .process-panel {
+        transition: grid-template-rows 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .process-panel-inner {
+        padding: 0 18px 0 68px;
+        transition: opacity 0.35s ease;
+      }
+
+      .process-panel-inner p {
+        font-size: 15px;
+      }
+
+      .process-panel-inner .process-duration {
+        margin: 22px 0 24px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .process-step,
+      .process-panel,
+      .process-indicator {
+        transition: none !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -3207,7 +3541,7 @@
 
   <!-- NAVBAR -->
   <nav class="navbar" id="navbar">
-    <div class="logo">BizApps</div>
+    <div class="logo"><span>BizApps</span></div>
     <ul class="nav-links">
       <li><a href="#advantages">Преимущества</a></li>
       <li><a href="#process">Процесс</a></li>
@@ -3225,8 +3559,10 @@
   <section class="hero" id="hero">
     <div class="container">
       <div class="hero-intro" id="heroIntro">
-        <div class="hero-kicker">Дизайн и разработка цифровых продуктов</div>
-        <h1 class="hero-title">Создаём digital-продукты, которые двигают бизнес</h1>
+        <h1 class="hero-title">
+          <span class="hero-title-line"><span class="hero-title-line-inner">Создаём digital-продукты,</span></span>
+          <span class="hero-title-line"><span class="hero-title-line-inner">которые двигают бизнес</span></span>
+        </h1>
         <p class="hero-summary">
           Проектируем и запускаем мобильные приложения, веб-сервисы и бизнес-системы — от идеи до готового продукта.
         </p>
@@ -3331,46 +3667,85 @@
       <h2 class="section-title reveal stagger-1">Прозрачный процесс<br>от <span class="gradient-text">идеи до стора</span></h2>
       <p class="section-subtitle reveal stagger-2">Вы всегда знаете, что происходит с вашим проектом на каждом этапе</p>
 
-      <div class="process-timeline">
-        <div class="process-step reveal">
-          <div class="process-number">1</div>
-          <div class="process-content">
-            <h3>Бриф и аналитика</h3>
-            <p>Погружаемся в вашу идею, анализируем конкурентов и целевую аудиторию. Формируем техническое задание и оценку.</p>
-            <div class="process-duration">&#128337; 2-3 дня</div>
-          </div>
+      <div class="process-scroll" id="processScroll">
+        <div class="process-spacers" aria-hidden="true">
+          <div class="process-spacer"></div>
+          <div class="process-spacer"></div>
+          <div class="process-spacer"></div>
+          <div class="process-spacer"></div>
+          <div class="process-spacer"></div>
         </div>
-        <div class="process-step reveal stagger-1">
-          <div class="process-number">2</div>
-          <div class="process-content">
-            <h3>UI/UX Дизайн</h3>
-            <p>Создаём интерактивные прототипы и финальный дизайн всех экранов. Тестируем на реальных пользователях.</p>
-            <div class="process-duration">&#128337; 1-2 недели</div>
-          </div>
-        </div>
-        <div class="process-step reveal stagger-2">
-          <div class="process-number">3</div>
-          <div class="process-content">
-            <h3>Разработка</h3>
-            <p>Кодим на React Native / Flutter для обеих платформ одновременно. Еженедельные демо-показы прогресса.</p>
-            <div class="process-duration">&#128337; 3-5 недель</div>
-          </div>
-        </div>
-        <div class="process-step reveal stagger-3">
-          <div class="process-number">4</div>
-          <div class="process-content">
-            <h3>Тестирование и QA</h3>
-            <p>Полный цикл тестирования: функциональное, нагрузочное, UX-тесты. Устраняем все баги до релиза.</p>
-            <div class="process-duration">&#128337; 3-5 дней</div>
-          </div>
-        </div>
-        <div class="process-step reveal stagger-4">
-          <div class="process-number">5</div>
-          <div class="process-content">
-            <h3>Запуск в сторах</h3>
-            <p>Публикуем в App Store и Google Play, настраиваем аналитику, мониторинг крашей и push-уведомления.</p>
-            <div class="process-duration">&#128337; 2-3 дня</div>
-          </div>
+
+        <div class="process-timeline">
+          <article class="process-step">
+            <button class="process-toggle" type="button" aria-expanded="false">
+              <span class="process-number">1</span>
+              <span class="process-title">Бриф и аналитика</span>
+              <span class="process-indicator" aria-hidden="true"></span>
+            </button>
+            <div class="process-panel">
+              <div class="process-panel-inner">
+                <p>Погружаемся в вашу идею, анализируем конкурентов и целевую аудиторию. Формируем техническое задание и оценку.</p>
+                <div class="process-duration">&#128337; 2-3 дня</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="process-step">
+            <button class="process-toggle" type="button" aria-expanded="false">
+              <span class="process-number">2</span>
+              <span class="process-title">UI/UX Дизайн</span>
+              <span class="process-indicator" aria-hidden="true"></span>
+            </button>
+            <div class="process-panel">
+              <div class="process-panel-inner">
+                <p>Создаём интерактивные прототипы и финальный дизайн всех экранов. Тестируем на реальных пользователях.</p>
+                <div class="process-duration">&#128337; 1-2 недели</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="process-step">
+            <button class="process-toggle" type="button" aria-expanded="false">
+              <span class="process-number">3</span>
+              <span class="process-title">Разработка</span>
+              <span class="process-indicator" aria-hidden="true"></span>
+            </button>
+            <div class="process-panel">
+              <div class="process-panel-inner">
+                <p>Кодим на React Native / Flutter для обеих платформ одновременно. Еженедельные демо-показы прогресса.</p>
+                <div class="process-duration">&#128337; 3-5 недель</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="process-step">
+            <button class="process-toggle" type="button" aria-expanded="false">
+              <span class="process-number">4</span>
+              <span class="process-title">Тестирование и QA</span>
+              <span class="process-indicator" aria-hidden="true"></span>
+            </button>
+            <div class="process-panel">
+              <div class="process-panel-inner">
+                <p>Полный цикл тестирования: функциональное, нагрузочное, UX-тесты. Устраняем все баги до релиза.</p>
+                <div class="process-duration">&#128337; 3-5 дней</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="process-step">
+            <button class="process-toggle" type="button" aria-expanded="false">
+              <span class="process-number">5</span>
+              <span class="process-title">Запуск в сторах</span>
+              <span class="process-indicator" aria-hidden="true"></span>
+            </button>
+            <div class="process-panel">
+              <div class="process-panel-inner">
+                <p>Публикуем в App Store и Google Play, настраиваем аналитику, мониторинг крашей и push-уведомления.</p>
+                <div class="process-duration">&#128337; 2-3 дня</div>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </div>
@@ -4074,13 +4449,81 @@
 
     // ===== NAVBAR SCROLL =====
     const navbar = document.getElementById('navbar');
+    const navbarCta = navbar.querySelector('.nav-cta');
     const heroSection = document.getElementById('hero');
     const heroShowcase = document.getElementById('heroShowcase');
+    const contactSection = document.getElementById('contact');
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const scrollMotionItems = [
       ...document.querySelectorAll('.case-screens > div'),
       ...document.querySelectorAll('.portfolio-card')
     ];
+    const processScroll = document.getElementById('processScroll');
+    const processTimeline = processScroll?.querySelector('.process-timeline');
+    const processSpacerTrack = processScroll?.querySelector('.process-spacers');
+    const processSpacers = [...document.querySelectorAll('.process-spacer')];
+    const processSteps = [...document.querySelectorAll('.process-step')];
+    const processMobileQuery = window.matchMedia('(max-width: 768px)');
+
+    const setProcessStepProgress = (step, progress) => {
+      const normalizedProgress = Math.max(0, Math.min(1, progress));
+      step.style.setProperty('--process-progress', normalizedProgress.toFixed(3));
+      step.style.setProperty('--process-row', `${normalizedProgress.toFixed(3)}fr`);
+      step.classList.toggle('is-active', normalizedProgress > 0.5);
+      step.querySelector('.process-toggle')?.setAttribute(
+        'aria-expanded',
+        normalizedProgress > 0.5 ? 'true' : 'false'
+      );
+    };
+
+    const updateProcessCards = () => {
+      if (!processScroll || processMobileQuery.matches) return;
+
+      const activationLine = window.innerHeight * 0.72;
+
+      processSpacers.forEach((spacer, index) => {
+        const bounds = spacer.getBoundingClientRect();
+        const revealDistance = Math.max(bounds.height * 0.72, window.innerHeight * 0.28);
+        const progress = (activationLine - bounds.top) / revealDistance;
+        setProcessStepProgress(processSteps[index], progress);
+      });
+
+      if (processTimeline && processSpacerTrack) {
+        const requiredHeight = Math.max(
+          processSpacerTrack.offsetHeight,
+          processTimeline.scrollHeight + 24
+        );
+        processScroll.style.minHeight = `${requiredHeight}px`;
+      }
+    };
+
+    const updateProcessMode = () => {
+      if (processMobileQuery.matches) {
+        processScroll?.style.removeProperty('min-height');
+        processSteps.forEach((step) => {
+          step.style.removeProperty('--process-progress');
+          step.style.removeProperty('--process-row');
+        });
+
+        if (!processSteps.some((step) => step.classList.contains('is-active'))) {
+          processSteps[0]?.classList.add('is-active');
+          processSteps[0]?.querySelector('.process-toggle')?.setAttribute('aria-expanded', 'true');
+        }
+        return;
+      }
+
+      updateProcessCards();
+    };
+
+    processSteps.forEach((step) => {
+      const toggle = step.querySelector('.process-toggle');
+      toggle?.addEventListener('click', () => {
+        if (!processMobileQuery.matches) return;
+
+        const isActive = step.classList.toggle('is-active');
+        toggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+      });
+    });
 
     const updateContentMotion = () => {
       if (prefersReducedMotion || window.innerWidth < 769) return;
@@ -4101,6 +4544,13 @@
       const heroEnd = heroSection.offsetTop + heroSection.offsetHeight;
       navbar.classList.toggle('scrolled', window.scrollY > heroEnd - 90);
 
+      const attentionStart = 80;
+      const attentionEnd = contactSection.offsetTop - window.innerHeight * 0.7;
+      navbarCta.classList.toggle(
+        'is-attention-ready',
+        window.scrollY > attentionStart && window.scrollY < attentionEnd
+      );
+
       if (prefersReducedMotion) return;
 
       const scrollRange = Math.max(1, heroSection.offsetHeight - window.innerHeight);
@@ -4118,6 +4568,7 @@
       isHeroFramePending = true;
       window.requestAnimationFrame(() => {
         updateHeroMotion();
+        updateProcessCards();
         isHeroFramePending = false;
       });
     }, { passive: true });
@@ -4154,6 +4605,8 @@
       });
     }
 
+    window.addEventListener('resize', updateProcessMode);
+    updateProcessMode();
     updateHeroMotion();
 
     // ===== SCROLL PROGRESS =====
